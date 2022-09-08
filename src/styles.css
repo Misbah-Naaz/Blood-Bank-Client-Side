@@ -13,6 +13,9 @@ h4,h1{
 .section-padding{
     padding:20px 0px;
 }
+.main-card{
+height: 490px!important;
+}
 .card-img{
 height: 300px;
 }
