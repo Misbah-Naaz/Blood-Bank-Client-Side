@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@1,700&display=swap');
+h4,h1{
+    font-family: 'Noto Serif', serif;
+}
+.carousel-item{
+    height: 100vh;
+    min-height: 320px;
+}
+.carousel-img{
+    height: 700px;
+}
+.section-padding{
+    padding:20px 0px;
+}
+.card-img{
+height: 300px;
+}
