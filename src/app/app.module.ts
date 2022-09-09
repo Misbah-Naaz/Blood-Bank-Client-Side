@@ -11,6 +11,7 @@ import { DonorDashboardComponent } from './donor/donor-dashboard/donor-dashboard
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { BloodBankComponent } from './blood-bank/blood-bank.component';
 import { DataTablesModule } from "angular-datatables";
+import { ReactiveFormsModule } from '@angular/forms';
 const router:Routes=[
   {path:'',pathMatch:'full',redirectTo:'home'},
   {path:'home',component:HomeComponent},
@@ -34,7 +35,8 @@ const router:Routes=[
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(router),
-    DataTablesModule
+    DataTablesModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

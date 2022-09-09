@@ -1,12 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { BloodDetails } from 'src/Models/Blood-Details';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-blood-bank',
   templateUrl: './blood-bank.component.html',
   styleUrls: ['./blood-bank.component.css']
 })
 export class BloodBankComponent implements OnInit {
+  requestBloodForm:FormGroup=new FormGroup({
+    recipient:new FormControl(''),
+    message:new FormControl('')
+  })
   bloodBank:BloodDetails[]=[];
   constructor() { }
   dtOptions: DataTables.Settings = {};
@@ -56,6 +61,15 @@ export class BloodBankComponent implements OnInit {
     }
   ]
  console.log(this.bloodBank)
+  }
+  requestSend(){
+    Swal.fire({
+      icon: 'success',
+      title: 'Success',
+      text: `Request Submitted For ${this.requestBloodForm.get('recipient')?.value}!`
+    })
+    console.log(this.requestBloodForm.value)
+    console.log(this.requestBloodForm.get('recipient')?.value)
   }
 
 }
