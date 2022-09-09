@@ -1,5 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@1,700&display=swap');
+/* ul li a:hover{
+    background-color: black;
+    border-radius: 5px;
+} */
 h4,h1{
     font-family: 'Noto Serif', serif;
 }
@@ -11,11 +15,41 @@ h4,h1{
     height: 700px;
 }
 .section-padding{
-    padding:20px 0px;
+    padding:100px 0px;
 }
 .main-card{
 height: 490px!important;
 }
 .card-img{
 height: 300px;
+}
+@media screen and (min-wdth:346 ),(max-width:991px){
+  html,body{
+    overflow-x:hidden ;
+  }
+    ul li a,span{
+    font-size: 15px!important;
+   }
+   ul li{
+    text-align: center;
+   }
+   ul{
+    width: 100%;
+   }
+   .carousel-inner{
+    height:213px;
+   }
+   .carousel-img{
+    height: 212px;
+}
+.carousel-indicators 
+{
+   top:185px!important;
+}
+.section-padding{
+    padding:50px 0px;
+}
+.main-card{
+    top:15px!important;
+}
 }

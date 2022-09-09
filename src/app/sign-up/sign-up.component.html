@@ -2,15 +2,22 @@
     <div class="row justify-content-center top-row">
         <div class="card w-50 donor-login">
             <div class="card-body">
-                <h4 class="text-center mb-5">Donor Login</h4>
+                <h4 class="text-center mb-5">Sign Up</h4>
             <form>
                 <div class="container donor-form">
                     <div class="row">
                         <div class="col-2">
+                            <label for="name" class="form-label">Name</label>
+                        </div>
+                       <div class="col-10">
+                        <input type="text" id="name" placeholder="Enter Your Full Name" class="form-control">
+                       </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-2">
                             <label for="username" class="form-label">Username</label>
                         </div>
                        <div class="col-10">
-                        <span class="icon"><i class="bi bi-person-fill"></i></span>
                         <input type="email" id="username" placeholder="Username" class="form-control">
                        </div>
                     </div>
@@ -19,12 +26,11 @@
                             <label for="password" class="form-label">Password</label>
                         </div>
                         <div class="col-10">
-                            <span class="icon"><i class="bi bi-key"></i></span>
                             <input type="password" id="password" placeholder="Password" class="form-control">
                         </div>
                     </div>
-                    <button routerLink="/donorDashboard" class="btn btn-danger">Login</button>
-                    <p class="mt-2 text-center">Don't Have An Account?<a href="sign-up" class=" text-decoration-none">Click Here To Sign Up.</a></p>
+                    <button routerLink="/donorDashboard" class="btn btn-primary">Sign Up</button>
+                    <p class="mt-2 text-center">Already Have An Account?<a href="donor" class=" text-decoration-none">Click Here To Sign in.</a></p>
                 </div>
             </form>
             </div>
