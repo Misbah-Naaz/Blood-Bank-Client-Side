@@ -1,0 +1,87 @@
+
+
+<!-- Donor Registration -->
+<section id="donor-registration" class="section-padding">
+    <div class="container">
+     
+      <div class="row justify-content-center top-row">
+       
+        <div class="card w-75 donor-login p-0">
+          <div class="card-header bg-danger text-white text-center">
+              <h5> Join As Blood Donor</h5>
+          </div>
+          <div class="card-body p-0">
+        <form [formGroup]="registrationForm" (ngSubmit)="registerSuccessful()">
+         
+          <div class="form-body bg-light">
+            <div class="row">
+
+              <div class="col-6">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" placeholder="Full Name" formControlName="fname">
+                <label for="pno" class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" formControlName="pno">
+<!--                 
+                  <label for="gender" class="form-label">Gender:</label>
+                  <select name="gander" id="gander" class="form-control text-secondary" formControlName="gender">
+                    <option value="Select Gender">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                  </select>                 -->
+                
+               
+                  <label for="dob" class="form-label">D.O.B</label>
+                  <input type="date" class="form-control" formControlName="dob">
+                
+                
+                  <!-- <label for="blood-group" class="form-label">Blood Group</label>
+                  <select name="bloodGroup" id="blood-group" class="text-secondary form-control" formControlName="bloodGroup">
+                    <option  class="form-control" value="Select Your Blood Group">Select From Drop Down List</option>
+                    <option  class="form-control" value="A+">A+</option>
+                    <option  class="form-control" value="B+">B+</option>
+                    <option  class="form-control" value="AB+">AB+</option>
+                    <option  class="form-control" value="A-">A-</option>
+                    <option  class="form-control" value="B-">B-</option>
+                    <option  class="form-control" value="AB-">AB-</option>
+                    <option  class="form-control" value="O+">O+</option>
+                    <option  class="form-control" value="O-">O-</option>                                
+                </select>
+                <label for="body-weight" class="form-label">Body Weight</label>
+                <input type="number" class="form-control" placeholder="Weight In Kgs" formControlName="weight">
+               -->
+              </div>
+               
+               <div class="col-6">
+  
+                  <label for="email" class="form-label">Email ID</label>
+                  <input type="email" class="form-control" placeholder="Email Address" formControlName="email">
+    
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" class="form-control" placeholder="Enter Password" formControlName="password">
+                  
+                  <label for="cPassword" class="form-label">Confirm Password</label>
+                  <input type="password" class="form-control" placeholder="Retype Password" formControlName="cpassword">
+                
+                  <!-- <label class="form-label">City</label>
+                  <select name="city" id="city" class="form-control text-secondary" formControlName="city">
+                    <option value="Select city">Select city</option>
+                    <option  class="form-control" value="Aurangabad">Aurangabad</option>
+                    <option  class="form-control" value="Pune">Pune</option>
+                    <option  class="form-control" value="Nagpure">Nagpure</option>
+                    <option  class="form-control" value="Mumbai">Mumbai</option>
+                 </select>
+                
+                
+                  <label for="address" class="form-label">Address</label>
+                  <textarea class="form-control" id="address"  formControlName="address"></textarea>
+                -->
+                <button type="submit" class="btn btn-danger my-4 me-auto" style="float: right;">Register</button>
+              </div>
+            </div>
+            </div>
+        </form>
+      </div>
+      </div>
+     </div>
+    </div>
+</section>

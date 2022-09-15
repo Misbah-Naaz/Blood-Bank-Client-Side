@@ -1,0 +1,28 @@
+    <div class="container-fluid">
+        <h5 class="text-center">My Donation History</h5>
+            <table class="table table-striped table-responsive table-primary">
+                <thead class="text-center">
+                    <tr>
+                        <th>Donor Age</th>
+                        <th>Disease</th>
+                        <th>Blood Group</th>
+                        <th>Unit</th>
+                        <th>Date</th>
+                        <!-- <th>Status</th> -->
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    <tr *ngFor="let d of details">
+                        <td>{{d.age}}</td>
+                        <td>{{d.disease}}</td>
+                        <td>{{d.bloodGroup}}</td>
+                        <td>{{d.unit}}</td>
+                        <td>{{d.date | date:'fullDate'}}</td>
+                        <!-- <td>
+                            <button class="btn btn-success">Approved</button>
+                        </td>
+                    </tr> -->
+                </tbody>
+            </table>
+    </div>
+    

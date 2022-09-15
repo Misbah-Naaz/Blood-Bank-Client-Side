@@ -6,3 +6,10 @@ export class BloodDetails{
     useBefore:Date=new Date();
     price:number=0;
 }
+export class DonorDetails{
+    bloodGroup!:string;
+    age!:number;
+    disease!:string;
+    unit!:number;
+    date!:Date;
+}

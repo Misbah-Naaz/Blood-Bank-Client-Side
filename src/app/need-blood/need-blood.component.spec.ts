@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BloodBankComponent } from './blood-bank.component';
+import { NeedBloodComponent } from './need-blood.component';
 
-describe('BloodBankComponent', () => {
-  let component: BloodBankComponent;
-  let fixture: ComponentFixture<BloodBankComponent>;
+describe('NeedBloodComponent', () => {
+  let component: NeedBloodComponent;
+  let fixture: ComponentFixture<NeedBloodComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BloodBankComponent ]
+      declarations: [ NeedBloodComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(BloodBankComponent);
+    fixture = TestBed.createComponent(NeedBloodComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

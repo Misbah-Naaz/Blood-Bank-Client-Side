@@ -1,0 +1,70 @@
+
+<!-- Patient Registration -->
+        <form  [formGroup]="NeedBloodForm" (ngSubmit)="request()">
+          <div class="form-body bg-light"> 
+            <div class="row">
+              <div class="col-6">
+                <label for="name" class="form-label">Patient Name</label>
+                <input type="text" class="form-control" placeholder="Full Name" formControlName="pname">
+                  
+                <label for="email" class="form-label">Email ID</label>
+                <input type="email" class="form-control" placeholder="Email Address" formControlName="email">
+              
+                 
+                  <label for="blood-group" class="form-label">Required Blood Group</label>
+                  <select name="bloodGroup" id="blood-group" class="text-secondary form-control" formControlName="neededBlood">
+                    <option  class="form-control" value="Select Your Blood Group">Select From Drop Down List</option>
+                    <option  class="form-control" value="A+">A+</option>
+                    <option  class="form-control" value="B+">B+</option>
+                    <option  class="form-control" value="AB+">AB+</option>
+                    <option  class="form-control" value="A-">A-</option>
+                    <option  class="form-control" value="B-">B-</option>
+                    <option  class="form-control" value="AB-">AB-</option>
+                    <option  class="form-control" value="O+">O+</option>
+                    <option  class="form-control" value="O-">O-</option>                                
+                </select>
+  
+                <label for="reason" class="form-label">Reason For Blood</label>
+                <textarea class="form-control" id="reason"  formControlName="reason"></textarea>
+             
+              </div>
+              <div class="col-6">
+                <label for="age" class="form-label">Age</label>
+                <input type="number" name="age" id="age" class="form-control" formControlName="age">
+
+<!--                 
+                <label for="gender" class="form-label">Gender:</label>
+                <select name="gander" id="gander" class="form-control text-secondary" formControlName="gender">
+                  <option value="Select Gender">Select Gender</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>      -->
+
+               
+                <label for="pno" class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" formControlName="pno">
+  
+                <label for="unit" class="form-label">Unit(in ml)</label>
+               <input type="number" name="unit" id="unit" class="form-control" formControlName="unit">
+ 
+
+                <!-- <label class="form-label">City</label>
+                <select name="city" id="city" class="form-control text-secondary" formControlName="city">
+                  <option value="Select city">Select city</option>
+                  <option  class="form-control" value="Aurangabad">Aurangabad</option>
+                  <option  class="form-control" value="Pune">Pune</option>
+                  <option  class="form-control" value="Nagpure">Nagpure</option>
+                  <option  class="form-control" value="Mumbai">Mumbai</option>
+               </select>
+              
+                -->
+                <label for="address" class="form-label">Hospital Name And Address</label>
+                <textarea class="form-control" id="address"  formControlName="hname"></textarea>
+             
+              </div>
+              <button type="submit" class="btn btn-danger my-4 col-6" style="margin-left:173px ;">Request Now</button>
+            </div>
+          </div>
+        </form>     
+
+
