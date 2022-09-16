@@ -1,33 +1,32 @@
-<div class="container">
-    <div class="row justify-content-center top-row">
-        <div class="card w-50 donor-login">
-            <div class="card-body">
-                <h4 class="text-center mb-5">Admin Login</h4>
-            <form>
-                <div class="container donor-form">
-                    <div class="row">
-                        <div class="col-2">
-                            <label for="username" class="form-label">Username</label>
-                        </div>
-                       <div class="col-10">
-                        <span class="icon"><i class="bi bi-person-fill"></i></span>
-                        <input type="email" id="username" placeholder="Username" class="form-control">
-                       </div>
-                    </div>
-                    <div class="row mt-5">
-                        <div class="col-2">
-                            <label for="password" class="form-label">Password</label>
-                        </div>
-                        <div class="col-10">
-                            <span class="icon"><i class="bi bi-key"></i></span>
-                            <input type="password" id="password" placeholder="Password" class="form-control">
-                        </div>
-                    </div>
-                    <button routerLink="/admin-dashboard" class="btn btn-danger">Login</button>
-                   </div>
-            </form>
-            </div>
-          </div>
+<nav class="navbar navbar-expand-lg bg-danger">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <i class="bi bi-heart-pulse-fill"></i>
+        <span class="text-light">Blood Bank Management System</span>
+    </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active text-white" aria-current="page" routerLink="/">logout</a>
+          </li>
+        </ul>
+      </div>
     </div>
+  </nav>
+  
+<div class="container-fluid">
+  <div class="row d-row">
+      <div class="col-2 bg-dark bg-opacity-75">
+          <app-sidebar></app-sidebar>
+      </div>
+      <div class="col-10 bg-light bg-opacity-75">
+          <section>
+             <router-outlet></router-outlet>
+          </section>             
    
+      </div>
+  </div>
 </div>

@@ -10,32 +10,32 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DonorRegistrationComponent } from './donor-registration/donor-registration.component';
 import { NeedBloodComponent } from './need-blood/need-blood.component';
 import { LoginComponent } from './login/login.component';
-import { DonorDashboardComponent } from './donor-dashboard/donor-dashboard.component';
-import { BloodDonationFormComponent } from './blood-donation-form/blood-donation-form.component';
-import { DonationHistoryComponent } from './donation-history/donation-history.component';
-import { DonorDashboardModule } from './donor-dashboard/donor-dashboard.module';
-import { SidebarComponent } from './donor-dashboard/components/sidebar/sidebar.component';
-import { AdminComponent } from './admin/admin.component';
-import { AdminDashboardComponent } from './admin/components/admin-dashboard/admin-dashboard.component';
-import { DonorDetailsComponent } from './admin/components/donor-details/donor-details.component';
-import { PatientDetailsComponent } from './admin/components/patient-details/patient-details.component';
+import { IndexComponent } from './index/index.component';
+import { AdminModule } from './admin/admin.module';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { DonorComponent } from './donor/donor.component';
+import { DonorDashboardComponent } from './donor/Components/donor-dashboard/donor-dashboard.component';
+import { BloodDonationFormComponent } from './donor/Components/blood-donation-form/blood-donation-form.component';
+import { DonationHistoryComponent } from './donor/Components/donation-history/donation-history.component';
+import { DonorModule } from './donor/donor.module';
 
 
 const router:Routes=[
-  {path:'',pathMatch:'full',redirectTo:'home'},
-  {path:'home',component:HomeComponent},
-  {path:'donor-registration-form',component:DonorRegistrationComponent},
-  {path:'need-blood-form',component:NeedBloodComponent},
-  {path:'login',component:LoginComponent},
-  {path:'donor-dashboard',component:DonorDashboardComponent},
-  {path:'blood-donation-form',component:BloodDonationFormComponent},
-  {path:'donation-history',component:DonationHistoryComponent},
-  {path:'admin',component:AdminComponent},
-  {path:'admin-dashboard',component:AdminDashboardComponent, children:[
-  {path:'donor-details',component:DonorDetailsComponent},
-  {path:'patient-details',component:PatientDetailsComponent}
-  ]},
-
+  {path:'',component:IndexComponent,children:[
+    {path:'',component:HomeComponent},
+    {path:'donor-registration-form',component:DonorRegistrationComponent},
+    {path:'need-blood-form',component:NeedBloodComponent},
+    {path:'login',component:LoginComponent},
+    {path:'donor-dashboard',component:DonorDashboardComponent},
+    {path:'blood-donation-form',component:BloodDonationFormComponent},
+    {path:'donation-history',component:DonationHistoryComponent},
+    {path:'admin-login',component:AdminLoginComponent},
+    {path:'donor',component:DonorComponent}
+      ]},
+  {path:'admin',
+    loadChildren:()=> import('./admin/admin.module')
+    .then((m) => m.AdminModule)
+}
 ];
 @NgModule({
   declarations: [
@@ -44,13 +44,11 @@ const router:Routes=[
     DonorRegistrationComponent,
     NeedBloodComponent,
     LoginComponent,
-     DonorDashboardComponent,
     BloodDonationFormComponent,
     DonationHistoryComponent,
-    AdminComponent,
-    AdminDashboardComponent,
-    DonorDetailsComponent,
-    PatientDetailsComponent,
+    IndexComponent,
+    AdminLoginComponent,
+    DonorComponent,
     ],
   imports: [
     BrowserModule,
@@ -58,7 +56,8 @@ const router:Routes=[
     RouterModule.forRoot(router),
     DataTablesModule,
     ReactiveFormsModule,
-    DonorDashboardModule
+    AdminModule,
+    DonorModule
     ],
   providers: [],
   bootstrap: [AppComponent]

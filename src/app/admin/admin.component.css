@@ -1,19 +1,5 @@
-input{
-    padding-left:35px ;
-}
-.icon{
-    position: absolute;
-    margin: 1px 0px 0px 5px;
-    font-size: 25px;
-    color: gray;
-}
-.top-row
+
+.d-row
 {
-    margin: 100px 0px 100px 0px;
-}
-.btn
-{
-    margin:18px 0px 0px 190px;
-    border-radius: 20px;
-    width: 111px;
+    height: 100vh;
 }
