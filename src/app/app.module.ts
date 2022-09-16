@@ -13,10 +13,6 @@ import { LoginComponent } from './login/login.component';
 import { IndexComponent } from './index/index.component';
 import { AdminModule } from './admin/admin.module';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
-import { DonorComponent } from './donor/donor.component';
-import { DonorDashboardComponent } from './donor/Components/donor-dashboard/donor-dashboard.component';
-import { BloodDonationFormComponent } from './donor/Components/blood-donation-form/blood-donation-form.component';
-import { DonationHistoryComponent } from './donor/Components/donation-history/donation-history.component';
 import { DonorModule } from './donor/donor.module';
 
 
@@ -25,13 +21,13 @@ const router:Routes=[
     {path:'',component:HomeComponent},
     {path:'donor-registration-form',component:DonorRegistrationComponent},
     {path:'need-blood-form',component:NeedBloodComponent},
-    {path:'login',component:LoginComponent},
-    {path:'donor-dashboard',component:DonorDashboardComponent},
-    {path:'blood-donation-form',component:BloodDonationFormComponent},
-    {path:'donation-history',component:DonationHistoryComponent},
+    {path:'donor-login',component:LoginComponent},
     {path:'admin-login',component:AdminLoginComponent},
-    {path:'donor',component:DonorComponent}
       ]},
+      {path:'donor',
+      loadChildren:()=>import('./donor/donor.module')
+      .then((m)=>m.DonorModule)
+      },
   {path:'admin',
     loadChildren:()=> import('./admin/admin.module')
     .then((m) => m.AdminModule)
@@ -43,12 +39,9 @@ const router:Routes=[
     HomeComponent,
     DonorRegistrationComponent,
     NeedBloodComponent,
-    LoginComponent,
-    BloodDonationFormComponent,
-    DonationHistoryComponent,
+    LoginComponent,  
     IndexComponent,
     AdminLoginComponent,
-    DonorComponent,
     ],
   imports: [
     BrowserModule,

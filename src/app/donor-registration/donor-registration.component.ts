@@ -40,7 +40,7 @@ export class DonorRegistrationComponent implements OnInit {
         title: 'Successful',
         text: 'Thank You For Registration!',
       })
-      this.router.navigate(['/login']);
+      this.router.navigate(['/donor-login']);
     }
    else{
     Swal.fire({
