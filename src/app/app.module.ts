@@ -15,6 +15,12 @@ import { BloodDonationFormComponent } from './blood-donation-form/blood-donation
 import { DonationHistoryComponent } from './donation-history/donation-history.component';
 import { DonorDashboardModule } from './donor-dashboard/donor-dashboard.module';
 import { SidebarComponent } from './donor-dashboard/components/sidebar/sidebar.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminDashboardComponent } from './admin/components/admin-dashboard/admin-dashboard.component';
+import { DonorDetailsComponent } from './admin/components/donor-details/donor-details.component';
+import { PatientDetailsComponent } from './admin/components/patient-details/patient-details.component';
+
+
 const router:Routes=[
   {path:'',pathMatch:'full',redirectTo:'home'},
   {path:'home',component:HomeComponent},
@@ -23,7 +29,13 @@ const router:Routes=[
   {path:'login',component:LoginComponent},
   {path:'donor-dashboard',component:DonorDashboardComponent},
   {path:'blood-donation-form',component:BloodDonationFormComponent},
-  {path:'donation-history',component:DonationHistoryComponent}
+  {path:'donation-history',component:DonationHistoryComponent},
+  {path:'admin',component:AdminComponent},
+  {path:'admin-dashboard',component:AdminDashboardComponent, children:[
+  {path:'donor-details',component:DonorDetailsComponent},
+  {path:'patient-details',component:PatientDetailsComponent}
+  ]},
+
 ];
 @NgModule({
   declarations: [
@@ -35,6 +47,10 @@ const router:Routes=[
      DonorDashboardComponent,
     BloodDonationFormComponent,
     DonationHistoryComponent,
+    AdminComponent,
+    AdminDashboardComponent,
+    DonorDetailsComponent,
+    PatientDetailsComponent,
     ],
   imports: [
     BrowserModule,

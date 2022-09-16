@@ -1,0 +1,11 @@
+.col-3
+{
+    box-shadow:  5px 10px 18px #af9595;
+    border-radius: 7px;
+    width: 22%;
+    height: 110px;
+}
+.d-row
+{
+    height: 100vh;
+}
