@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { DonorDetails } from 'src/Models/Blood-Details';
+import { DonorHistory } from 'src/Models/Blood-Details';
 @Component({
   selector: 'app-donation-history',
   templateUrl: './donation-history.component.html',
   styleUrls: ['./donation-history.component.css']
 })
 export class DonationHistoryComponent implements OnInit {
-  details:DonorDetails[]=[];
+  details:DonorHistory[]=[];
 
   constructor() { }
 

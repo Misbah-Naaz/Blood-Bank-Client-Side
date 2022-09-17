@@ -11,6 +11,7 @@ import { SidebarComponent } from './Components/sidebar/sidebar.component';
 const donorrouter:Routes=[
   {path:'donor',component:DonorComponent,children:
   [
+    {path:'',component:DonorDashboardComponent},
     {path:'donor-dashboard',component:DonorDashboardComponent},
     {path:'sidebar',component:SidebarComponent},
     {path:'blood-donation-form',component:BloodDonationFormComponent},

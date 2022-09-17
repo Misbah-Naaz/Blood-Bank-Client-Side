@@ -12,6 +12,7 @@ import { DataTablesModule } from 'angular-datatables';
 
 const adminrouter:Routes=[
   {path:'admin',component:AdminComponent,children:[
+    {path:'',component:AdminDashboardComponent},
     {path:'sidebar',component:SidebarComponent},
     {path:'dashboard',component:AdminDashboardComponent},
     {path:'donor-details',component:DonorDetailsComponent},

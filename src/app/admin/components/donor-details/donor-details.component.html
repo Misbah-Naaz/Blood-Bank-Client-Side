@@ -1,1 +1,24 @@
-<p>donor-details works!</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr class="text-center">
+            <th>Donor Name</th>
+            <th>Blood Group</th>
+            <th>Unit(in ml)</th>
+            <th>Disease</th>
+            <th>Age</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let item of DonorDetailForm" class="text-center">
+            <td>{{item.dName}}</td>
+            <td>{{item.bloodGroup}}</td>
+            <td>{{item.unit}}</td>
+            <td>{{item.disease}}</td>
+            <td>{{item.age}}</td>
+            <td>{{item.date | date:'shortDate'}}</td>
+        </tr>
+    </tbody>
+</table>
