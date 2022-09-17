@@ -7,6 +7,8 @@ import { AdminDashboardComponent } from './components/admin-dashboard/admin-dash
 import { AdminComponent } from './admin.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { BloodStackComponent } from './components/blood-stack/blood-stack.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { DataTablesModule } from 'angular-datatables';
 
 const adminrouter:Routes=[
   {path:'admin',component:AdminComponent,children:[
@@ -29,6 +31,8 @@ const adminrouter:Routes=[
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
+    DataTablesModule,
     RouterModule.forChild(adminrouter)
   ]
 })

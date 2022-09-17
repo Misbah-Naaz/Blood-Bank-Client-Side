@@ -1,1 +1,53 @@
-<p>blood-stack works!</p>
+<table datatable [dtOptions]="dtOptions" class="table mt-5 table-light table-responsive  table-striped ">
+    <thead>
+        <tr class="table-dark bg-dark">
+            <th>ID</th>
+            <th>Donated By</th>
+            <th>Blood Group</th>
+            <th>Available</th>
+            <th>Use Before</th>
+            <th>price</th> 
+            <th>Action</th>   
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of bloodBank">
+         <td>{{item.bloodId}}</td>
+         <td>{{item.donatedBy}}</td>
+         <td>{{item.bloodGroup}}</td>
+         <td>{{item.available}}</td>
+         <td>{{item.useBefore | date:'fullDate'}}</td>
+         <td>{{item.price}}</td>
+         <td>
+            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Request</button>
+            <button class="btn btn-primary ms-3">View</button>
+        </td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Request Blood</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="requestBloodForm">
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Recipient:</label>
+            <input type="text" class="form-control" id="recipient-name" formControlName="recipient">
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control" id="message-text" formControlName="message"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="requestSend()">Send Request</button>
+      </div>
+    </div>
+  </div>
+</div>
