@@ -1,0 +1,9 @@
+.req-btn{
+margin-left:173px 
+}
+
+@media screen and (min-wdth:346 ),(max-width:991px){
+    .req-btn{
+        margin-left:135px 
+        }
+}

@@ -41,17 +41,23 @@ label{
     font-weight: 700;
     margin-top: 5px;
 }
+.donor-register{
+    width: 75%!important;
+}
+.donor-login{
+    width: 50%!important;
+}
 @media screen and (min-wdth:346 ),(max-width:991px){
   html,body{
     overflow-x:hidden ;
   }
-    ul li a,span{
+.navbar ul li a,span{
     font-size: 15px!important;
    }
-   ul li{
+.navbar ul li{
     text-align: center;
    }
-   ul{
+.navbar ul{
     width: 100%;
    }
    .carousel-inner{
@@ -69,5 +75,14 @@ label{
 }
 .main-card{
     top:15px!important;
+}
+h5{
+    font-size: 14px!important;
+}
+.donor-register{
+    width: 100%!important;
+}
+.donor-login{
+    width: 100%!important;
 }
 }

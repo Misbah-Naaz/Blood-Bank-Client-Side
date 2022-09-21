@@ -1,0 +1,15 @@
+.modal-position{
+    right: 100px;
+}
+.modal-width{
+    width: 150%;
+}
+
+@media screen and (min-wdth:346 ),(max-width:991px){
+    .modal-position{
+        right: 0%;
+    }
+    .modal-width{
+        width: 100%;
+    }
+}

@@ -3,7 +3,7 @@
         <form  [formGroup]="NeedBloodForm" (ngSubmit)="request()">
           <div class="form-body bg-light"> 
             <div class="row">
-              <div class="col-6">
+              <div class="col-lg-6 col-md-6 col-sm-12">
                 <label for="name" class="form-label">Patient Name</label>
                 <input type="text" class="form-control" placeholder="Full Name" formControlName="pname">
                   
@@ -28,7 +28,7 @@
                 <textarea class="form-control" id="reason"  formControlName="reason"></textarea>
              
               </div>
-              <div class="col-6">
+              <div class="col-lg-6 col-md-6 col-sm-12">
                 <label for="age" class="form-label">Age</label>
                 <input type="number" name="age" id="age" class="form-control" formControlName="age">
 
@@ -62,7 +62,7 @@
                 <textarea class="form-control" id="address"  formControlName="hname"></textarea>
              
               </div>
-              <button type="submit" class="btn btn-danger my-4 col-6" style="margin-left:173px ;">Request Now</button>
+              <button type="submit" class="btn btn-danger my-4 col-6 req-btn">Request Now</button>
             </div>
           </div>
         </form>     

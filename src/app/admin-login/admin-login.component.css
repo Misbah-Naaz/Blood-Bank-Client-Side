@@ -11,9 +11,28 @@ input{
 {
     margin: 100px 0px 100px 0px;
 }
+.pass-row{
+    margin-top: 40px;
+}
 .btn
 {
     margin:18px 0px 0px 190px;
     border-radius: 20px;
     width: 111px;
+}
+@media screen and (min-wdth:346 ),(max-width:991px){
+    .icon{
+        font-size: 20px!important;
+        margin: 4px 0px 0px 7px;
+    }
+    .top-row{
+        margin: 0px;
+    }
+    .btn
+{
+    margin: 15px 0px 0px 80px;
+}
+.pass-row{
+    margin-top: 25px;
+}
 }
