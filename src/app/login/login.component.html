@@ -3,7 +3,7 @@
         <div class="card donor-login">
             <div class="card-body">
                 <h4 class="text-center mb-5">Donor Login</h4>
-            <form>
+            <form [formGroup]="loginForm" (ngSubmit)="login()">
                 <div class="container donor-form">
                     <div class="row">
                         <div class="col-lg-2 col-sm-12 col-md-2">
@@ -11,7 +11,7 @@
                         </div>
                        <div class="col-lg-10 col-sm-12 col-md-10">
                         <span class="icon"><i class="bi bi-person-fill"></i></span>
-                        <input type="email" id="username" placeholder="Username" class="form-control">
+                        <input #UserName type="email" id="username" placeholder="Username" class="form-control" formControlName="username">
                        </div>
                     </div>
                     <div class="row pass-row">
@@ -20,10 +20,10 @@
                         </div>
                         <div class="col-lg-10 col-sm-12 col-md-10">
                             <span class="icon"><i class="bi bi-key"></i></span>
-                            <input type="password" id="password" placeholder="Password" class="form-control">
+                            <input type="password" id="password" placeholder="Password" class="form-control" formControlName="password">
                         </div>
                     </div>
-                    <button routerLink="/donor" class="btn btn-danger">Login</button>
+                    <button class="btn btn-danger">Login</button>
                 </div>
             </form>
             </div>

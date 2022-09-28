@@ -9,26 +9,41 @@ export class BloodDetails{
     price:number=0;
 }
 export class DonorHistory{
-    bloodGroup!:string;
+    id!:number;
+    name!:string;
     age!:number;
-    disease!:string;
+    bloodGroup!:string;
     unit!:number;
+    disease!:string;
+    city!:string;
     date!:Date;
 }
 export class PatientDetail{
-    pName!:string;
+    id!:number;
+    name!:string;
+    age!:number;
     bloodGroup!:string;
     unit!:number;
     reason!:string;
     address!:string;
     date!:Date;
-    mno!:string;
+    phoneNumber!:string;
 }
 export class DonorDetail{
-    dName!:string;
-    bloodGroup!:string;
+    id!:number;
+    donarName!:string;
     age!:number;
-    disease!:string;
+    bloodGroup!:string;
     unit!:number;
-    date!:Date;
+    disease!:string;
+    donatedAt!:string;
+    donatedOn!:Date;
+}
+export class LoginUser{
+    id!:number;
+    name!:string;
+    pnumber!:string;
+    dob!:Date;
+    email!:string;
+    password!:string;
 }

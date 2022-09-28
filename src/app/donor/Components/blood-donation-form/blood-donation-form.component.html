@@ -14,7 +14,12 @@
         <form [formGroup]="DonatBloodForm" (ngSubmit)="submitted()">
          
           <div class="form-body">
-    
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" placeholder="Enter Your Full Name" formControlName="fname">
+            
+            <label for="age">Age</label>
+            <input type="number" name="age" id="age" class="form-control" formControlName="age">
+            
                   <label for="blood-group" class="form-label">Blood Group</label>
                   <select name="bloodGroup" id="blood-group" class="text-secondary form-control" formControlName="bloodGroup">
                     <option  class="form-control" value="Select Your Blood Group">Select From Drop Down List</option>
@@ -34,9 +39,13 @@
                 <label for="disease">Disease (if any)</label>
                 <input type="text" name="disease" id="disease" class="form-control" formControlName="disease">
 
-                <label for="age">Age</label>
-                <input type="number" name="age" id="age" class="form-control" formControlName="age">
-                
+                <label class="form-label" for="city">Donated At (City)</label>
+                <select name="city" id="city" class="form-control text-secondary" formControlName="city">
+                  <option  class="form-control" value="Aurangabad">Aurangabad</option>
+                  <option  class="form-control" value="Pune">Pune</option>
+                  <option  class="form-control" value="Nagpure">Nagpure</option>
+                  <option  class="form-control" value="Mumbai">Mumbai</option>
+               </select>
                 <button type="submit" class="btn btn-danger my-4" style="float: right;">Donate</button>
          </div>
            
