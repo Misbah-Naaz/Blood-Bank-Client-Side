@@ -39,11 +39,18 @@ export class DonorDetail{
     donatedAt!:string;
     donatedOn!:Date;
 }
-export class LoginUser{
-    id!:number;
-    name!:string;
-    pnumber!:string;
-    dob!:Date;
-    email!:string;
-    password!:string;
+export class User{
+    userID!: number;
+    firstName!: string;
+    lastName!: string;
+    dateOfBirth!: Date;
+    mobileNumber!: string;
+    gender!: string;
+}
+export class UserCredential{
+//   UCID:number = 0;
+//   UserID:number=0;
+  Email: string = '';
+  Password: string = '';
+  UserRole: string = '';
 }

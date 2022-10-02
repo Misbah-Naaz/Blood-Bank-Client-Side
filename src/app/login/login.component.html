@@ -11,7 +11,7 @@
                         </div>
                        <div class="col-lg-10 col-sm-12 col-md-10">
                         <span class="icon"><i class="bi bi-person-fill"></i></span>
-                        <input #UserName type="email" id="username" placeholder="Username" class="form-control" formControlName="username">
+                        <input #UserName type="email" id="username" placeholder="Username" class="form-control" formControlName="email">
                        </div>
                     </div>
                     <div class="row pass-row">
@@ -23,6 +23,8 @@
                             <input type="password" id="password" placeholder="Password" class="form-control" formControlName="password">
                         </div>
                     </div>
+                    <p class="mt-2 text-center">Don't Have An Account?<a routerLink="/donor-registration-form" class=" text-decoration-none">Click Here To Sign Up.</a></p>
+                
                     <button class="btn btn-danger">Login</button>
                 </div>
             </form>
