@@ -7,9 +7,12 @@ import { DonationHistoryComponent } from './Components/donation-history/donation
 import { DonorComponent } from './donor.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SidebarComponent } from './Components/sidebar/sidebar.component';
+import { AccessServicesService } from '../Services/access-services.service';
 
 const donorrouter:Routes=[
-  {path:'donor',component:DonorComponent,children:
+  {path:'donor',
+  canActivate:[AccessServicesService],
+  component:DonorComponent,children:
   [
     {path:'',component:DonorDashboardComponent},
     {path:'donor-dashboard',component:DonorDashboardComponent},

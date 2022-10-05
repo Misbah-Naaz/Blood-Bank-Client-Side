@@ -46,6 +46,9 @@ export class User{
     dateOfBirth!: Date;
     mobileNumber!: string;
     gender!: string;
+    email: string = '';
+    password: string = '';
+    userRole: string = '';
 }
 export class UserCredential{
 //   UCID:number = 0;

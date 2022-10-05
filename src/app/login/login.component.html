@@ -2,7 +2,7 @@
     <div class="row justify-content-center top-row">
         <div class="card donor-login">
             <div class="card-body">
-                <h4 class="text-center mb-5">Donor Login</h4>
+                <h4 class="text-center mb-5">Login</h4>
             <form [formGroup]="loginForm" (ngSubmit)="login()">
                 <div class="container donor-form">
                     <div class="row">
@@ -25,7 +25,7 @@
                     </div>
                     <p class="mt-2 text-center">Don't Have An Account?<a routerLink="/donor-registration-form" class=" text-decoration-none">Click Here To Sign Up.</a></p>
                 
-                    <button class="btn btn-danger">Login</button>
+                    <button class="btn btn-danger" type="submit">Login</button>
                 </div>
             </form>
             </div>

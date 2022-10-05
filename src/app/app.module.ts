@@ -16,6 +16,7 @@ import { AdminModule } from './admin/admin.module';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { DonorModule } from './donor/donor.module';
 import { BBDService } from './Services/bbd.service';
+import { AccessServicesService } from './Services/access-services.service';
 
 
 const router:Routes=[
@@ -23,7 +24,7 @@ const router:Routes=[
     {path:'',component:HomeComponent},
     {path:'donor-registration-form',component:DonorRegistrationComponent},
     {path:'need-blood-form',component:NeedBloodComponent},
-    {path:'donor-login',component:LoginComponent},
+    {path:'login',component:LoginComponent},
     {path:'admin-login',component:AdminLoginComponent},
       ]},
       {path:'donor',

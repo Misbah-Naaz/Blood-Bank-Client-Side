@@ -9,9 +9,10 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { BloodStackComponent } from './components/blood-stack/blood-stack.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DataTablesModule } from 'angular-datatables';
+import { AccessServicesService } from '../Services/access-services.service';
 
 const adminrouter:Routes=[
-  {path:'admin',component:AdminComponent,children:[
+  {path:'admin',component:AdminComponent,canActivate:[AccessServicesService],children:[
     {path:'',component:AdminDashboardComponent},
     {path:'sidebar',component:SidebarComponent},
     {path:'dashboard',component:AdminDashboardComponent},

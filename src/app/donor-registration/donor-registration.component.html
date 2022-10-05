@@ -8,7 +8,7 @@
        
         <div class="card donor-register p-0">
           <div class="card-header bg-danger text-white text-center">
-              <h5> Join As Blood Donor</h5>
+              <h5> Join Us</h5>
           </div>
           <div class="card-body p-0">
         <form [formGroup]="registrationForm" (ngSubmit)="registerSuccessful()">
@@ -18,7 +18,7 @@
 
               <div class="col-lg-6 col-sm-12">
                 <label for="fname" class="form-label">First Name</label>
-                <input type="text" class="form-control" placeholder="First Name" formControlName="fname">
+                <input type="text" class="form-control" placeholder="First Name" formControlName="fName">
                 <label for="lname" class="form-label">Last Name</label>
                 <input type="text" class="form-control" placeholder="Last Name" formControlName="lname">
                 <label for="gender" class="form-label">Gender</label>
@@ -29,7 +29,6 @@
                 
                   <label for="dob" class="form-label">D.O.B</label>
                   <input type="date" class="form-control" formControlName="dob">
-                  <p class="mt-4 text-center">Already Have An Account?<a routerLink="/donor-login" class=" text-decoration-none">Click Here To Login.</a></p>
                   
                 </div>
                
@@ -46,9 +45,10 @@
                   <label for="cPassword" class="form-label">Confirm Password</label>
                   <input type="password" class="form-control" placeholder="Retype Password" formControlName="cpassword">
                     
-                <button type="submit" class="btn btn-danger my-4 me-auto" style="float: right;">Register</button>
-              </div>
-
+                </div>
+                <button type="submit" class="btn btn-danger col-2 mt-5 me-auto" style="margin-left:350px">Register</button>
+                <p class="mt-4 text-center">Already Have An Account?<a routerLink="/login" class=" text-decoration-none">Click Here To Login.</a></p>
+                  
             </div>
             </div>
         </form>

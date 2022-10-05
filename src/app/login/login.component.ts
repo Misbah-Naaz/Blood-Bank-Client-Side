@@ -2,8 +2,9 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { find } from 'rxjs';
-import { BloodDetails, UserCredential} from 'src/Models/Blood-Details';
+import { BloodDetails, User, UserCredential} from 'src/Models/Blood-Details';
 import Swal from 'sweetalert2';
+import { AlertifyJSService } from '../Services/alertify-js.service';
 import { BBDService } from '../Services/bbd.service';
 
  @Component({
@@ -12,13 +13,13 @@ import { BBDService } from '../Services/bbd.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  allUser:UserCredential[]=[];
-  user : UserCredential = new UserCredential();
+  allUser:User[]=[];
+  user : User = new User();
   // @ViewChild('UserName') userInput! : ElementRef;
   loginForm:FormGroup=new FormGroup(
     {
       email:new FormControl('',Validators.required),
-      password:new FormControl('',Validators.required)
+      password:new FormControl('',Validators.required),
     }
   )
   get Email(){
@@ -29,7 +30,9 @@ export class LoginComponent implements OnInit {
   }
 
 
-  constructor(private route:Router,private newlogin:BBDService) { }
+  constructor(private route:Router,
+    private alert : AlertifyJSService,
+    private newlogin:BBDService) { }
 
   // ngDoCheck(){
   //  console.log(this.userInput.nativeElement)
@@ -42,18 +45,51 @@ export class LoginComponent implements OnInit {
     if(this.loginForm.valid)
     {
       console.log(this.loginForm.value)
-    //   this.user.email=this.Email.value;
-    //   this.user.password=this.Password.value;
-    //   this.newlogin.getLoginUser().subscribe((data:any)=>{
-    //     console.log(data)
-    // })
-      Swal.fire(
+
+      this.allUser.filter((element:User)=>
+      {
+        if(element.email==this.Email.value && element.password == this.Password.value)
         {
-          icon: 'success',
-          title: 'Successful',
-          text: 'User Login Successfully!',
+          this.alert.success('Login Successfull');
+          localStorage.setItem('UserName',element.email)
+          localStorage.setItem('UserRole',element.userRole)
+          console.log(element.userRole)
+          if(element.userRole=='admin')
+            this.route.navigate(['admin'])
+           else
+           {
+            if(element.userRole=='user')
+             this.route.navigate(['donor'])
+            if(element.userRole==null)
+             this.route.navigate(['donor'])
+           }
+
+        }
+        else{
+          this.alert.error("Wrong Credentials !!")
+
+        }
+
+        //     if(element.userRole == 'admin')
+        //     {
+        //       console.log('I am admin')
+        //       this.route.navigate(['admin'])
+        //     }
+        //     else(element.userRole == 'user')
+        //           this.route.navigate(['donar'])
+         
+          
+  
       })
-      this.route.navigate(['donor'])
+
+      
+      // Swal.fire(
+      //   {
+      //     icon: 'success',
+      //     title: 'Successful',
+      //     text: 'User Login Successfully!',
+      // })
+      // this.route.navigate(['donor'])
     }
   }
 

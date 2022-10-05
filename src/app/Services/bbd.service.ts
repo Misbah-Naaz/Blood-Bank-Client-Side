@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
-import { UserCredential } from 'src/Models/Blood-Details';
+import { User, UserCredential } from 'src/Models/Blood-Details';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,9 +14,9 @@ export class BBDService {
   getDonorDetails(){
     return this.http.get("https://localhost:7148/api/Donars")
   }
-  postRegisterUser(userData :UserCredential)
+  postRegisterUser(userData :User)
   {
-    return this.http.post("https://localhost:7148/api/UserCredential/add", userData)
+    return this.http.post("https://localhost:7148/api/User/add", userData)
   }
   getLoginUser()
   {
