@@ -15,6 +15,7 @@ import { BBDService } from '../Services/bbd.service';
 export class LoginComponent implements OnInit {
   allUser:User[]=[];
   user : User = new User();
+  LoggedinUser:UserCredential=new UserCredential();
   // @ViewChild('UserName') userInput! : ElementRef;
   loginForm:FormGroup=new FormGroup(
     {
@@ -101,5 +102,10 @@ export class LoginComponent implements OnInit {
       console.log(this.allUser)
     })
   }
- 
+  requestData(){
+    return (this.LoggedinUser={
+      email:this.Email.value,
+      password: this.Password.value,
+    })
+  }
 }
