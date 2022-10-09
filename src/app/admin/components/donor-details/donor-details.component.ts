@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { data } from 'jquery';
 import { BBDService } from 'src/app/Services/bbd.service';
-import { DonorDetail } from 'src/Models/Blood-Details';
+import { DonorDetail } from 'src/Models/DonorDetail';
 
 @Component({
   selector: 'app-donor-details',

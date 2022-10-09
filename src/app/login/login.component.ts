@@ -2,7 +2,8 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { find } from 'rxjs';
-import { BloodDetails, User, UserCredential} from 'src/Models/Blood-Details';
+import { User } from 'src/Models/User';
+import { UserCredential } from 'src/Models/UserCredential';
 import Swal from 'sweetalert2';
 import { AlertifyJSService } from '../Services/alertify-js.service';
 import { BBDService } from '../Services/bbd.service';
@@ -104,8 +105,11 @@ export class LoginComponent implements OnInit {
   }
   requestData(){
     return (this.LoggedinUser={
-      email:this.Email.value,
-      password: this.Password.value,
+      UserID : 0,
+      UCID : 0,
+      UserRole : '',
+      Email:this.Email.value,
+      Password: this.Password.value,
     })
   }
 }

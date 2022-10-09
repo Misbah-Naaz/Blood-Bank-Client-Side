@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BBDService } from 'src/app/Services/bbd.service';
-import { DonorDetail, DonorHistory } from 'src/Models/Blood-Details';
+import { DonorHistory } from 'src/Models/DonorHistory';
 @Component({
   selector: 'app-donation-history',
   templateUrl: './donation-history.component.html',

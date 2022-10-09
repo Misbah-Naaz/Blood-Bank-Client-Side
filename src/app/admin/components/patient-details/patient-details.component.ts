@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BBDService } from 'src/app/Services/bbd.service';
-import { PatientDetail } from 'src/Models/Blood-Details';
+import { PatientDetail } from 'src/Models/PatientDetail';
 
 @Component({
   selector: 'app-patient-details',

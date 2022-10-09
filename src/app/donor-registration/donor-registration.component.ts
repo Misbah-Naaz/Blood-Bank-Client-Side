@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { data } from 'jquery';
-import { User, UserCredential } from 'src/Models/Blood-Details';
+import { User } from 'src/Models/User';
 import Swal from 'sweetalert2';
 import { AlertifyJSService } from '../Services/alertify-js.service';
 import { BBDService } from '../Services/bbd.service';

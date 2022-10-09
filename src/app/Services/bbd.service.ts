@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
-import { User, UserCredential } from 'src/Models/Blood-Details';
+import { User } from 'src/Models/User';
 @Injectable({
   providedIn: 'root'
 })

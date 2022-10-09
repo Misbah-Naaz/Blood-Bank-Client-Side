@@ -17,6 +17,7 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { DonorModule } from './donor/donor.module';
 import { BBDService } from './Services/bbd.service';
 import { AccessServicesService } from './Services/access-services.service';
+import { FooterComponent } from './donor/Components/footer/footer.component';
 
 
 const router:Routes=[
@@ -45,6 +46,7 @@ const router:Routes=[
     LoginComponent,  
     IndexComponent,
     AdminLoginComponent,
+    FooterComponent
     ],
   imports: [
     BrowserModule,
