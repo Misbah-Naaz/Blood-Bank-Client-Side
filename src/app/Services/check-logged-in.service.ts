@@ -9,7 +9,7 @@ export class CheckLoggedInService {
   constructor() { }
   matchUserName()
   {
-    this.userRole=localStorage.getItem('userRole')
+    this.userRole=localStorage.getItem('UserRole')
     if(this.userRole=='user' || this.userRole=='admin')
      this.check=true;
   }

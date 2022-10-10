@@ -1,5 +1,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-<nav class="navbar navbar-expand-lg bg-danger ">
+
+<!-- for normal site  -->
+<nav *ngIf="!isOnLoginPage" class="navbar navbar-expand-lg bg-danger ">
   <div class="container-fluid">
       <a class="navbar-brand" routerLink="#">
         <i class="bi bi-heart-pulse-fill"></i>
@@ -36,24 +38,51 @@
           </li>  
           
         </ul>
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-position">
-      <div class="modal-content modal-width">
-        <div class="modal-header bg-danger text-white" style="height: 49px;">
-          <h5 class="modal-title" id="exampleModalLabel">Need Blood To Save Lifes</h5>
-          <button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body p-0">
-          <app-need-blood></app-need-blood>
-        </div>
-        <!-- <div class="modal-footer">  
-          
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div> -->
-      </div>
-    </div>
-  </div>
+
       </div>
     </div>
   </nav>
+
+ <!-- for login page -->
+  <nav *ngIf="isOnLoginPage" class="navbar navbar-expand-lg bg-danger ">
+    <div class="container-fluid">
+        <a class="navbar-brand" routerLink="#">
+          <i class="bi bi-heart-pulse-fill"></i>
+          <span class="text-light">Blood Bank Management System</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+  
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#">Home</a>
+            </li>  
+      
+          </ul>
+
+        </div>
+      </div>
+    </nav>
 <router-outlet></router-outlet>
+
+<!-- 
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-position">
+    <div class="modal-content modal-width">
+      <div class="modal-header bg-danger text-white" style="height: 49px;">
+        <h5 class="modal-title" id="exampleModalLabel">Need Blood To Save Lifes</h5>
+        <button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-0">
+        <app-need-blood></app-need-blood>
+      </div>
+       <div class="modal-footer">  
+        
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div> 
+    </div>
+  </div>
+</div> -->

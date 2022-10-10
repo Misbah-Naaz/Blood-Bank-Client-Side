@@ -20,7 +20,8 @@ export class BloodStackComponent implements OnInit {
     this.dtOptions = {
       pagingType: 'full_numbers'
     };
-    this.bloodBank=[{
+    this.bloodBank=[
+      {
       bloodId:1,
       bloodGroup:'A+',
       available:true,

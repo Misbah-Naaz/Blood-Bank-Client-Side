@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-index',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexComponent implements OnInit {
 
-  constructor() { }
+  isOnLoginPage : boolean = false;
+
+  constructor(private router : Router) {
+
+   }
 
   ngOnInit(): void {
+    //checking if the activated route contains login..
+    console.log(this.router.url.includes('login'));
+  }
+
+  ngDoCheck(){
+   this. isOnLoginPage = this.router.url.includes('login')
   }
 
 }
