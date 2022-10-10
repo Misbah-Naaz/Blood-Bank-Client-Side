@@ -17,7 +17,7 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { DonorModule } from './donor/donor.module';
 import { BBDService } from './Services/bbd.service';
 import { AccessServicesService } from './Services/access-services.service';
-import { FooterComponent } from './donor/Components/footer/footer.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 const router:Routes=[
