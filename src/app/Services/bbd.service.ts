@@ -22,7 +22,7 @@ export class BBDService {
   {
     return this.http.get("https://localhost:7148/api/UserCredential/get")
   }
-  addLoginUser(Login:User)
+  LoginUser(Login:User)
   {
     return this.http.post("https://localhost:7148/api/User/login",Login)
   }

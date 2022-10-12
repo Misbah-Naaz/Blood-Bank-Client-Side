@@ -44,46 +44,31 @@ export class LoginComponent implements OnInit {
   this.getAllUser();
   }
   login(){
+   
     if(this.loginForm.valid)
     {
       console.log(this.loginForm.value)
 
-      this.allUser.filter((element:User)=>
-      {
-        if(element.email==this.Email.value && element.password == this.Password.value)
-        {
-          this.alert.success('Login Successfull');
-          localStorage.setItem('UserName',element.email)
-          localStorage.setItem('UserRole',element.userRole)
-          console.log(element.userRole)
-          if(element.userRole=='admin')
+      this.newlogin.LoginUser(this.loginForm.value).subscribe((data:any)=>{
+        console.log(data);
+        if(data != null){
+          localStorage.setItem('UserName',data.email);
+          localStorage.setItem('UserRole',data.userRole);
+
+          if(data.userRole=="admin")
+          {
             this.route.navigate(['admin'])
-           else
-           {
-            if(element.userRole=='user')
-             this.route.navigate(['donor'])
-            if(element.userRole==null)
-             this.route.navigate(['donor'])
-           }
-
+            this.alert.success("Admin Login Successful")
+          }
+          else{
+            if(data.userRole=='user')
+            {
+              this.route.navigate(['donor'])
+              this.alert.success("Donor Login Successful")
+            }
+          }
         }
-        else{
-          this.alert.error("Wrong Credentials !!")
-
-        }
-
-        //     if(element.userRole == 'admin')
-        //     {
-        //       console.log('I am admin')
-        //       this.route.navigate(['admin'])
-        //     }
-        //     else(element.userRole == 'user')
-        //           this.route.navigate(['donar'])
-         
-          
-  
       })
-
       
       // Swal.fire(
       //   {

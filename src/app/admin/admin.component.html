@@ -9,8 +9,19 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li *ngIf="loggedinUserName != null" class="text-white nav-item py-2">       
+            <span>
+              <i class="bi bi-person-circle"></i>
+              {{loggedinUserName}}
+            </span>
+          </li>
           <li class="nav-item">
-            <a class="nav-link active text-white" aria-current="page" routerLink="/">logout</a>
+            <a class="nav-link active text-white" aria-current="page" routerLink="/">logout 
+              <span>
+              <i class="bi bi-box-arrow-right"></i>
+            </span>
+          </a>
+          
           </li>
         </ul>
       </div>

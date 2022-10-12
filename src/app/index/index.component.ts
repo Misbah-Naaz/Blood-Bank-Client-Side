@@ -9,6 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class IndexComponent implements OnInit {
 
   isOnLoginPage : boolean = false;
+  isOnRegisterPage : boolean = false;
 
   constructor(private router : Router) {
 
@@ -17,10 +18,13 @@ export class IndexComponent implements OnInit {
   ngOnInit(): void {
     //checking if the activated route contains login..
     console.log(this.router.url.includes('login'));
+    console.log(this.router.url.includes('donor-registration-form'));
+  
   }
 
   ngDoCheck(){
-   this. isOnLoginPage = this.router.url.includes('login')
-  }
+        this.isOnLoginPage = this.router.url.includes('login')   
+        this.isOnRegisterPage=this.router.url.includes('donor-registration-form')
+      }
 
 }

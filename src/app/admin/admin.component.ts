@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-
+ loggedinUserName:any=null;
   constructor() { }
 
   ngOnInit(): void {
+    this.loggedinUserName=localStorage.getItem('UserName');
+    console.log(this.loggedinUserName);
   }
-
+ 
 }
