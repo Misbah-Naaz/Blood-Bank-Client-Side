@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { find } from 'rxjs';
+import { LoginRequest } from 'src/Models/LoginRequest';
 import { User } from 'src/Models/User';
 import { UserCredential } from 'src/Models/UserCredential';
 import Swal from 'sweetalert2';
@@ -14,9 +15,8 @@ import { BBDService } from '../Services/bbd.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  allUser:User[]=[];
-  user : User = new User();
-  LoggedinUser:UserCredential=new UserCredential();
+  logginRequest:LoginRequest=new LoginRequest;
+    
   // @ViewChild('UserName') userInput! : ElementRef;
   loginForm:FormGroup=new FormGroup(
     {
@@ -41,27 +41,32 @@ export class LoginComponent implements OnInit {
   // }
 
   ngOnInit(): void {
-  this.getAllUser();
+ 
   }
   login(){
    
     if(this.loginForm.valid)
     {
-      console.log(this.loginForm.value)
+      //Providing values in the loginRequest Model
 
-      this.newlogin.LoginUser(this.loginForm.value).subscribe((data:any)=>{
+     this.logginRequest.UserName=this.Email.value;
+     this.logginRequest.Password=this.Password.value;
+     
+     console.log(this.loginForm.value)
+      this.newlogin.LoginUser(this.logginRequest).subscribe((data:any)=>{
         console.log(data);
         if(data != null){
-          localStorage.setItem('UserName',data.email);
+          localStorage.setItem('UserName',data.userName);
           localStorage.setItem('UserRole',data.userRole);
-
-          if(data.userRole=="admin")
+          localStorage.setItem('Token',data.token);
+          
+          if(data.userRole=="Admin")
           {
             this.route.navigate(['admin'])
             this.alert.success("Admin Login Successful")
           }
           else{
-            if(data.userRole=='user')
+            if(data.userRole=='Donor')
             {
               this.route.navigate(['donor'])
               this.alert.success("Donor Login Successful")
@@ -78,23 +83,5 @@ export class LoginComponent implements OnInit {
       // })
       // this.route.navigate(['donor'])
     }
-  }
-
-  getAllUser()
-  {
-    this.newlogin.getLoginUser().subscribe((data:any)=>
-    {
-      this.allUser=data;
-      console.log(this.allUser)
-    })
-  }
-  requestData(){
-    return (this.LoggedinUser={
-      UserID : 0,
-      UCID : 0,
-      UserRole : '',
-      Email:this.Email.value,
-      Password: this.Password.value,
-    })
   }
 }

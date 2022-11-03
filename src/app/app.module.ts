@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
-
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { DataTablesModule } from "angular-datatables";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DonorRegistrationComponent } from './donor-registration/donor-registration.component';
+import { DonorRegistrationComponent } from './Registration/donor-registration.component';
 import { NeedBloodComponent } from './need-blood/need-blood.component';
 import { LoginComponent } from './login/login.component';
 import { IndexComponent } from './index/index.component';
@@ -18,6 +17,8 @@ import { DonorModule } from './donor/donor.module';
 import { BBDService } from './Services/bbd.service';
 import { AccessServicesService } from './Services/access-services.service';
 import { FooterComponent } from './footer/footer.component';
+import { ForgotComponent } from './forgot/forgot.component';
+
 
 
 const router:Routes=[
@@ -26,7 +27,7 @@ const router:Routes=[
     {path:'donor-registration-form',component:DonorRegistrationComponent},
     {path:'need-blood-form',component:NeedBloodComponent},
     {path:'login',component:LoginComponent},
-    {path:'admin-login',component:AdminLoginComponent},
+    {path:'forgot',component:ForgotComponent},
       ]},
       {path:'donor',
       loadChildren:()=>import('./donor/donor.module')
@@ -46,7 +47,8 @@ const router:Routes=[
     LoginComponent,  
     IndexComponent,
     AdminLoginComponent,
-    FooterComponent
+    FooterComponent,
+    ForgotComponent
     ],
   imports: [
     BrowserModule,

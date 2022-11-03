@@ -1,33 +1,46 @@
 import { Injectable } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { User } from 'src/Models/User';
+import { LoginRequest } from 'src/Models/LoginRequest';
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class BBDService {
+  baseurl:string=environment.baseUrl;
 
   constructor(private http:HttpClient) { }
-  getPatientDetails()
+  getPatientDetails(token:any)
   {
-    return this.http.get("https://localhost:7148/patients")
+    var header={
+      headers:new HttpHeaders().set(`Authorization`,`Bearer ${token}`)
+    }
+    return this.http.get(this.baseurl+"api/Patient/get",header)
   }
   getDonorDetails(){
-    return this.http.get("https://localhost:7148/api/Donars")
+    return this.http.get(this.baseurl+"api/Donars")
   }
-  postRegisterUser(userData :User)
+  postRegisterUser(userData :User,token:any)
   {
-    return this.http.post("https://localhost:7148/api/User/add", userData)
+     var header={
+    headers:new HttpHeaders().set(`Authorization`,`Bearer ${token}`)
+  }
+    return this.http.post(this.baseurl+"api/User/add", userData,header)
   }
   getLoginUser()
   {
-    return this.http.get("https://localhost:7148/api/UserCredential/get")
+    return this.http.get(this.baseurl+"api/UserCredential/get")
   }
-  LoginUser(Login:User)
+  LoginUser(Login:LoginRequest)
   {
-    return this.http.post("https://localhost:7148/api/User/login",Login)
+    return this.http.post(this.baseurl+"api/Account/login",Login)
   }
   getAllUSers()
   {
-    return this.http.get("https://localhost:7148/api/User/get")
+    return this.http.get(this.baseurl+"api/User/get")
+  }
+  getUserRoles()
+  {
+     return this.http.get(this.baseurl+"api/UserRole/get")
   }
 }

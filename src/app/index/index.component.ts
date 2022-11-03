@@ -19,7 +19,6 @@ export class IndexComponent implements OnInit {
     //checking if the activated route contains login..
     console.log(this.router.url.includes('login'));
     console.log(this.router.url.includes('donor-registration-form'));
-  
   }
 
   ngDoCheck(){

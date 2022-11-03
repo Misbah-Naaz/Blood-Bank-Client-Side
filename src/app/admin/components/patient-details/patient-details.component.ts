@@ -8,10 +8,12 @@ import { PatientDetail } from 'src/Models/PatientDetail';
   styleUrls: ['./patient-details.component.css']
 })
 export class PatientDetailsComponent implements OnInit {
+  token:any;
   PatientDetailForm:PatientDetail[]=[];
   constructor(private PatientService:BBDService) { }
 
   ngOnInit(): void {
+    this.token=localStorage.getItem('Token')
     this.getPatients();
     // this.PatientDetailForm=[{
     //   pName:'Misbah Naaz',
@@ -53,7 +55,7 @@ export class PatientDetailsComponent implements OnInit {
   }
   getPatients()
   {
-    this.PatientService.getPatientDetails().subscribe((data : any)=>{
+    this.PatientService.getPatientDetails(this.token).subscribe((data : any)=>{
         console.log(data)
         this.PatientDetailForm=data;
     });

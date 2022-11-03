@@ -10,7 +10,7 @@ export class CheckLoggedInService {
   matchUserName()
   {
     this.userRole=localStorage.getItem('UserRole')
-    if(this.userRole=='user' || this.userRole=='admin')
+    if(this.userRole=='Donor' || this.userRole=='Admin')
      this.check=true;
   }
 

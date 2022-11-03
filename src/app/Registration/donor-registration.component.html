@@ -44,7 +44,10 @@
                   
                   <label for="cPassword" class="form-label">Confirm Password</label>
                   <input type="password" class="form-control" placeholder="Retype Password" formControlName="cpassword">
-                    
+                  <label for="userRole" class="form-label">Register As:</label>
+                  <select id="userRole" formControlName="UserRole" class="form-control">
+                    <option *ngFor="let role of userRoles" [value]="role.userRole">{{role.userRole}}</option>
+                  </select>
                 </div>
                 <button type="submit" class="btn btn-danger col-2 mt-5 me-auto" style="margin-left:350px">Register</button>
                 <p class="mt-4 text-center">Already Have An Account?<a routerLink="/login" class=" text-decoration-none">Click Here To Login.</a></p>

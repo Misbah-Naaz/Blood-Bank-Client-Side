@@ -6,7 +6,7 @@ import { PatientDetailsComponent } from './components/patient-details/patient-de
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { AdminComponent } from './admin.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { BloodStackComponent } from './components/blood-stack/blood-stack.component';
+import { BloodStackComponent } from './components/blood-stock/blood-stack.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DataTablesModule } from 'angular-datatables';
 import { AccessServicesService } from '../Services/access-services.service';

@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./donor.component.css']
 })
 export class DonorComponent implements OnInit {
-
+  loggedInUser:any;
   constructor() { }
 
   ngOnInit(): void {
+    this.loggedInUser=localStorage.getItem('UserName')
+    console.log(this.loggedInUser)
   }
 
 }

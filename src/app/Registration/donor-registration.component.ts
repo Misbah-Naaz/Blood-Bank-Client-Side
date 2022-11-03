@@ -3,10 +3,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { data } from 'jquery';
 import { User } from 'src/Models/User';
+import{UserRole} from 'src/Models/UserRole';
 import Swal from 'sweetalert2';
-import { AlertifyJSService } from '../Services/alertify-js.service';
 import { BBDService } from '../Services/bbd.service';
-
+import * as alert from 'alertifyjs'
 @Component({
   selector: 'app-donor-registration',
   templateUrl: './donor-registration.component.html',
@@ -21,12 +21,13 @@ export class DonorRegistrationComponent implements OnInit {
     email:new FormControl('',[Validators.required,Validators.email]),
     pno:new FormControl('',Validators.required),
     password:new FormControl('',[Validators.required,Validators.minLength(6)]),
-    cpassword : new FormControl('')
+    cpassword : new FormControl(''),
+    UserRole:new FormControl('')
   })
-  userlist:User[] = [];
-
+  // userlist:User[] = [];
+token:any;
   user : User = new User();
-
+  userRoles:UserRole[]=[];
   regRequest :  User = new User();
 
 
@@ -59,14 +60,19 @@ export class DonorRegistrationComponent implements OnInit {
   {
     return this.registrationForm.get('pno') as FormControl;
   }
-
-  constructor(private router : Router,private newUser:BBDService,private alert:AlertifyJSService) { }
+  get UserRole()
+  {
+    return this.registrationForm.get('UserRole') as FormControl;
+  }
+  constructor(private router : Router,private newUser:BBDService) { }
 
   ngOnInit(): void {
+    this.getUserRole();
+    this.token=localStorage.getItem('Token')
   console.log(this.registrationForm.value) ;
 
   //setting to localstorage..
-  localStorage.setItem('name','Shiza');
+  // localStorage.setItem('name','Shiza');
 
   // this.Fname = localStorage.getItem('name');
 }
@@ -76,11 +82,12 @@ export class DonorRegistrationComponent implements OnInit {
    if(this.registrationForm.valid)
 {
     console.log(this.registrationForm.value)
-    this.user.email = this.Email.value;
-    this.user.password = this.Password.value;
-    this.user.userRole = 'user';
+    // this.user.email = this.Email.value;
+    // this.user.password = this.Password.value;
+    // this.user.userRole = 'user';
     if(this.Password.value==this.ConfirmPassword.value)
-    this.newUser.postRegisterUser(this.requestData()).subscribe((data:any)=>{
+   {
+    this.newUser.postRegisterUser(this.requestData(),this.token).subscribe((data:any)=>{
       console.log(data)
       Swal.fire({
         icon: 'success',
@@ -91,14 +98,23 @@ export class DonorRegistrationComponent implements OnInit {
       this.router.navigate(['/login']);
     })  
     }
-   else{
-    Swal.fire({
-      icon: 'error',
-      title: 'Please Fill all the details',
-      text: 'Fill Again!',
-    })
-    // this.registrationForm.reset();
-   }
+    else{
+      console.log("Password Mismatch")
+      alert.error("Password Mismatch")
+      // Swal.fire({
+      //   icon: 'error',
+      //   text:'Password Mismatch'
+      // })
+     }
+  } 
+  //  else{
+  //   Swal.fire({
+  //     icon: 'error',
+  //     title: 'Please Fill all the details',
+  //     text: 'Fill Again!',
+  //   })
+  //   // this.registrationForm.reset();
+  //  }
   } 
   
   requestData(){
@@ -111,8 +127,18 @@ export class DonorRegistrationComponent implements OnInit {
       gender:this.Gender.value ,
       email:this.Email.value,
       password: this.Password.value,
-      userRole:  'user',
+      userRole: this.UserRole.value,
     })
   }
-  
+  getUserRole()
+  {
+     this.newUser.getUserRoles().subscribe((data:any)=>{
+      //storing all the roles except Admin
+      this.userRoles=data.filter((element:UserRole)=>{
+        return element.userRole!='Admin'
+        
+      });
+      console.log(this.userRoles)
+     })
+  }
 }
