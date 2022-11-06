@@ -135,8 +135,7 @@ token:any;
      this.newUser.getUserRoles().subscribe((data:any)=>{
       //storing all the roles except Admin
       this.userRoles=data.filter((element:UserRole)=>{
-        return element.userRole!='Admin'
-        
+        return element.userRole!='Admin'  
       });
       console.log(this.userRoles)
      })

@@ -1,14 +1,10 @@
-input{
-    padding-left:35px ;
+.arrowimg{
+    width: 20px;
+    margin-top: 10px;
 }
 .txtForgot{
     font-size: 14px;
     margin-top: 10px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: -0.03px;
   }
 .top-row
 {
