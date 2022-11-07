@@ -1,5 +1,5 @@
 export class DonorDetail{
-    id!:number;
+    donorId!:number;
     donarName!:string;
     age!:number;
     bloodGroup!:string;

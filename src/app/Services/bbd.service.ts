@@ -17,8 +17,11 @@ export class BBDService {
     }
     return this.http.get(this.baseurl+"api/Patient/get",header)
   }
-  getDonorDetails(){
-    return this.http.get(this.baseurl+"api/Donars")
+  getDonorDetails(token:any){
+    var header={
+      headers:new HttpHeaders().set(`Authorization`,`Bearer ${token}`)
+    }
+    return this.http.get(this.baseurl+"api/Donar/get",header)
   }
   postRegisterUser(userData :User,token:any)
   {
@@ -42,5 +45,9 @@ export class BBDService {
   getUserRoles()
   {
      return this.http.get(this.baseurl+"api/UserRole/get")
+  }
+  getBloodStockDetails()
+  {
+   return this.http.get(this.baseurl+"/api/BloodStock/get")
   }
 }

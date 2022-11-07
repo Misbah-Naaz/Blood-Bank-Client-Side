@@ -1,3 +1,4 @@
+import { Token } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { data } from 'jquery';
 import { BBDService } from 'src/app/Services/bbd.service';
@@ -10,9 +11,11 @@ import { DonorDetail } from 'src/Models/DonorDetail';
 })
 export class DonorDetailsComponent implements OnInit {
   DonorDetailForm:DonorDetail[]=[];
+  token:any;
   constructor(private DonorService:BBDService) { }
 
   ngOnInit(): void {
+    this.token=localStorage.getItem("Token")
     this.getDonorDetail();
     // this.DonorDetailForm=[
     //   {
@@ -59,7 +62,7 @@ export class DonorDetailsComponent implements OnInit {
     
     getDonorDetail()
     {
-      this.DonorService.getDonorDetails().subscribe((data:any)=>{
+      this.DonorService.getDonorDetails(this.token).subscribe((data:any)=>{
         console.log(data);
         this.DonorDetailForm = data;
       }

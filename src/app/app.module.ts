@@ -12,7 +12,6 @@ import { NeedBloodComponent } from './need-blood/need-blood.component';
 import { LoginComponent } from './login/login.component';
 import { IndexComponent } from './index/index.component';
 import { AdminModule } from './admin/admin.module';
-import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { DonorModule } from './donor/donor.module';
 import { BBDService } from './Services/bbd.service';
 import { AccessServicesService } from './Services/access-services.service';
@@ -46,7 +45,7 @@ const router:Routes=[
     NeedBloodComponent,
     LoginComponent,  
     IndexComponent,
-    AdminLoginComponent,
+ 
     FooterComponent,
     ForgotComponent
     ],

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { BBDService } from 'src/app/Services/bbd.service';
 import { BloodDetails } from 'src/Models/Blood-Details';
 import Swal from 'sweetalert2';
 
@@ -14,54 +15,55 @@ export class BloodStackComponent implements OnInit {
     message:new FormControl('')
   })
   bloodBank:BloodDetails[]=[];
-  constructor() { }
+  constructor(private BloodStockService:BBDService) { }
   dtOptions: DataTables.Settings = {};
   ngOnInit(): void {
+    this.BloodStockService.getBloodStockDetails();
     this.dtOptions = {
       pagingType: 'full_numbers'
     };
-    this.bloodBank=[
-      {
-      bloodId:1,
-      bloodGroup:'A+',
-      available:true,
-      donatedBy:'Akbar',
-      useBefore:new Date(),
-      price:1000,
-    },
-    {
-      bloodId:2,
-      bloodGroup:'B+',
-      available:true,
-      donatedBy:'Sameer',
-      useBefore:new Date(),
-      price:1000,
-    },
-    {
-      bloodId:3,
-      bloodGroup:'AB+',
-      available:true,
-      donatedBy:'Vijay',
-      useBefore:new Date(),
-      price:1000,
-    },
-    {
-      bloodId:4,
-      bloodGroup:'B+',
-      available:true,
-      donatedBy:'Satish',
-      useBefore:new Date(),
-      price:1000,
-    },
-    {
-      bloodId:5,
-      bloodGroup:'A+',
-      available:true,
-      donatedBy:'Suchita',
-      useBefore:new Date(),
-      price:1000,
-    }
-  ]
+  //   this.bloodBank=[
+  //     {
+  //     bloodId:1,
+  //     bloodGroup:'A+',
+  //     available:true,
+  //     donatedBy:'Akbar',
+  //     useBefore:new Date(),
+  //     price:1000,
+  //   },
+  //   {
+  //     bloodId:2,
+  //     bloodGroup:'B+',
+  //     available:true,
+  //     donatedBy:'Sameer',
+  //     useBefore:new Date(),
+  //     price:1000,
+  //   },
+  //   {
+  //     bloodId:3,
+  //     bloodGroup:'AB+',
+  //     available:true,
+  //     donatedBy:'Vijay',
+  //     useBefore:new Date(),
+  //     price:1000,
+  //   },
+  //   {
+  //     bloodId:4,
+  //     bloodGroup:'B+',
+  //     available:true,
+  //     donatedBy:'Satish',
+  //     useBefore:new Date(),
+  //     price:1000,
+  //   },
+  //   {
+  //     bloodId:5,
+  //     bloodGroup:'A+',
+  //     available:true,
+  //     donatedBy:'Suchita',
+  //     useBefore:new Date(),
+  //     price:1000,
+  //   }
+  // ]
  console.log(this.bloodBank)
   }
   requestSend(){

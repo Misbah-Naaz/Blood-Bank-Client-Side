@@ -12,11 +12,11 @@
     </thead>
     <tbody>
         <tr *ngFor="let item of bloodBank">
-         <td>{{item.bloodId}}</td>
-         <td>{{item.donatedBy}}</td>
-         <td>{{item.bloodGroup}}</td>
+         <td>{{item.bloodStockId}}</td>
+         <td>{{item.donarName}}</td>
+         <td>{{item.bloodGroupName}}</td>
          <td>{{item.available}}</td>
-         <td>{{item.useBefore | date:'shortDate'}}</td>
+         <td>{{item.bestBeforeDate | date:'shortDate'}}</td>
          <td>{{item.price}}</td>
          <td>
             <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Request</button>

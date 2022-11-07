@@ -63,13 +63,25 @@ export class LoginComponent implements OnInit {
           if(data.userRole=="Admin")
           {
             this.route.navigate(['admin'])
-            this.alert.success("Admin Login Successful")
+               Swal.fire(
+        {
+          icon: 'success',
+          title: 'Successful',
+          text: 'Admin Login Successful!',
+      })
+           
           }
           else{
             if(data.userRole=='Donor')
             {
               this.route.navigate(['donor'])
-              this.alert.success("Donor Login Successful")
+                 Swal.fire(
+        {
+          icon: 'success',
+          title: 'Successful',
+          text: 'Login Successfully!',
+      })
+              
             }
           }
         }
