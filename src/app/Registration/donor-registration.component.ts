@@ -7,6 +7,7 @@ import{UserRole} from 'src/Models/UserRole';
 import Swal from 'sweetalert2';
 import { BBDService } from '../Services/bbd.service';
 import * as alert from 'alertifyjs'
+import { RecoverPasswordQuestions } from 'src/Models/RecoverPasswordQuestion';
 @Component({
   selector: 'app-donor-registration',
   templateUrl: './donor-registration.component.html',
@@ -22,13 +23,19 @@ export class DonorRegistrationComponent implements OnInit {
     pno:new FormControl('',Validators.required),
     password:new FormControl('',[Validators.required,Validators.minLength(6)]),
     cpassword : new FormControl(''),
-    UserRole:new FormControl('')
+    UserRole:new FormControl(''),
+    recoverPasswordQuestion : new FormControl(''),
+    recoverPasswordAnswer : new FormControl('')
   })
   // userlist:User[] = [];
 token:any;
   user : User = new User();
   userRoles:UserRole[]=[];
   regRequest :  User = new User();
+
+  questionText : string = '';
+
+  RecoverPasswordQuestions : RecoverPasswordQuestions[] = [];
 
 
   get Email(){
@@ -64,12 +71,25 @@ token:any;
   {
     return this.registrationForm.get('UserRole') as FormControl;
   }
+
+  get recoverPasswordQuestion()
+  {
+    return this.registrationForm.get('recoverPasswordQuestion') as FormControl;
+  }
+
+  get recoverPasswordAnswer()
+  {
+    return this.registrationForm.get('recoverPasswordAnswer') as FormControl;
+  }
+
+
   constructor(private router : Router,private newUser:BBDService) { }
 
   ngOnInit(): void {
+    this.token=localStorage.getItem('Token');
+    this.getQuestions();
     this.getUserRole();
-    this.token=localStorage.getItem('Token')
-  console.log(this.registrationForm.value) ;
+  console.log(this.registrationForm.value);
 
   //setting to localstorage..
   // localStorage.setItem('name','Shiza');
@@ -78,6 +98,7 @@ token:any;
 }
   registerSuccessful(){
 
+    console.log(this.requestData());
 
    if(this.registrationForm.valid)
 {
@@ -128,6 +149,9 @@ token:any;
       email:this.Email.value,
       password: this.Password.value,
       userRole: this.UserRole.value,
+      questionId : this.recoverPasswordQuestion.value,
+      question : this.questionText,
+      answer : this.recoverPasswordAnswer.value
     })
   }
   getUserRole()
@@ -140,4 +164,18 @@ token:any;
       console.log(this.userRoles)
      })
   }
+
+  getQuestions(){  
+    this.newUser.getRecoverPasswordQuestions(this.token).subscribe((data:RecoverPasswordQuestions[])=>{
+      this.RecoverPasswordQuestions = data;
+      console.log(data);
+    })
+  }
+
+  getQuestionById(id : any){
+    this.newUser.getRecoverPasswordQuestionById(this.token,id).subscribe((data:RecoverPasswordQuestions)=>{
+      this.questionText = data.question;
+    })
+  }
+ 
 }

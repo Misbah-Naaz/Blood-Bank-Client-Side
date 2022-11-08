@@ -29,6 +29,11 @@
                 
                   <label for="dob" class="form-label">D.O.B</label>
                   <input type="date" class="form-control" formControlName="dob">
+
+                  <label for="userRole" class="form-label">In Case to Recover Password, Please Answer</label>
+                  <select id="recoverPasswordQuestion" (change)="getQuestionById(Question.value)" formControlName="recoverPasswordQuestion" class="form-control" #Question>
+                    <option *ngFor="let item of RecoverPasswordQuestions" [value]="item.questionId">{{item.question}}</option>
+                  </select>
                   
                 </div>
                
@@ -43,11 +48,18 @@
                   <input type="password" class="form-control" placeholder="Enter Password" formControlName="password">
                   
                   <label for="cPassword" class="form-label">Confirm Password</label>
-                  <input type="password" class="form-control" placeholder="Retype Password" formControlName="cpassword">
+                  <input type="password" class="form-control" placeholder="Retype Password" formControlName="cpassword">                
+
+                  <label for="cPassword" class="form-label">Your Answer</label>
+                  <input type="text" class="form-control" placeholder="Enter Answer" formControlName="recoverPasswordAnswer">
+
+
                   <label for="userRole" class="form-label">Register As:</label>
                   <select id="userRole" formControlName="UserRole" class="form-control">
                     <option *ngFor="let role of userRoles" [value]="role.userRole">{{role.userRole}}</option>
                   </select>
+
+                 
                 </div>
                 <button type="submit" class="btn btn-danger col-2 mt-5 me-auto" style="margin-left:350px">Register</button>
                 <p class="mt-4 text-center">Already Have An Account?<a routerLink="/login" class=" text-decoration-none" style="color:#dc3545;font-weight: 500;">Click Here To Login.</a></p>

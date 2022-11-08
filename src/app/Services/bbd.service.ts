@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { User } from 'src/Models/User';
 import { LoginRequest } from 'src/Models/LoginRequest';
 import { environment } from 'src/environments/environment';
+import { RecoverPasswordQuestions } from 'src/Models/RecoverPasswordQuestion';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -48,6 +50,20 @@ export class BBDService {
   }
   getBloodStockDetails()
   {
-   return this.http.get(this.baseurl+"/api/BloodStock/get")
+   return this.http.get(this.baseurl+"api/BloodStock/get")
+  }
+
+  getRecoverPasswordQuestions(token:any):Observable<RecoverPasswordQuestions[]>{
+    var header = {
+      headers : new HttpHeaders().set('Authorization', `Bearer ${token}`)
+    }
+    return this.http.get<RecoverPasswordQuestions[]>(this.baseurl + 'api/RecoverPasswordQuestons/get',header);
+  }
+
+  getRecoverPasswordQuestionById(token:any, id:any):Observable<RecoverPasswordQuestions>{
+    var header = {
+      headers : new HttpHeaders().set('Authorization', `Bearer ${token}`)
+    }
+    return this.http.get<RecoverPasswordQuestions>(this.baseurl + `api/RecoverPasswordQuestons/get/${id}`,header);
   }
 }
