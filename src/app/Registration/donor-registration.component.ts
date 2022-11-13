@@ -87,7 +87,6 @@ token:any;
 
   ngOnInit(): void {
     this.token=localStorage.getItem('Token');
-    this.getQuestions();
     this.getUserRole();
   console.log(this.registrationForm.value);
 
@@ -148,10 +147,7 @@ token:any;
       gender:this.Gender.value ,
       email:this.Email.value,
       password: this.Password.value,
-      userRole: this.UserRole.value,
-      questionId : this.recoverPasswordQuestion.value,
-      question : this.questionText,
-      answer : this.recoverPasswordAnswer.value
+      userRole: this.UserRole.value,   
     })
   }
   getUserRole()
@@ -164,18 +160,6 @@ token:any;
       console.log(this.userRoles)
      })
   }
-
-  getQuestions(){  
-    this.newUser.getRecoverPasswordQuestions(this.token).subscribe((data:RecoverPasswordQuestions[])=>{
-      this.RecoverPasswordQuestions = data;
-      console.log(data);
-    })
-  }
-
-  getQuestionById(id : any){
-    this.newUser.getRecoverPasswordQuestionById(this.token,id).subscribe((data:RecoverPasswordQuestions)=>{
-      this.questionText = data.question;
-    })
-  }
+ 
  
 }

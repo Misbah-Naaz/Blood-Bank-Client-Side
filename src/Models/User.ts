@@ -7,8 +7,5 @@ export class User{
     gender!: string;
     email: string = '';
     password: string = '';
-    userRole: string = '';
-    questionId : number = 0;
-    question : string = '';
-    answer : string = '';
+    userRole: string = '';   
 }
