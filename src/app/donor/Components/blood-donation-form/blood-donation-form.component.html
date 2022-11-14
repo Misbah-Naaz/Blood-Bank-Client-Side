@@ -13,12 +13,7 @@
           <div class="card-body p-0 bg-light">
         <form [formGroup]="DonatBloodForm" (ngSubmit)="submitted()">
          
-          <div class="form-body">
-            <label for="name" class="form-label">Name</label>
-            <input type="text" class="form-control" placeholder="Enter Your Full Name" formControlName="fname">
-            
-            <label for="age">Age</label>
-            <input type="number" name="age" id="age" class="form-control" formControlName="age">
+          <div class="form-body">           
             
                   <label for="blood-group" class="form-label">Blood Group</label>
                   <select name="bloodGroup" id="blood-group" class="text-secondary form-control" formControlName="bloodGroup">
@@ -31,7 +26,7 @@
                     <option  class="form-control" value="AB-">AB-</option>
                     <option  class="form-control" value="O+">O+</option>
                     <option  class="form-control" value="O-">O-</option>                                
-                </select>
+                   </select>
               
                 <label for="unit">Unit (in ml)</label>
                 <input type="number" name="unit" id="unit" class="form-control" formControlName="unit">
