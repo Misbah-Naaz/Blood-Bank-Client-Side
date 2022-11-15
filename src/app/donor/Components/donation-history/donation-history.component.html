@@ -6,25 +6,25 @@
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
-                        <th>Age</th>
-                        <th>Blood Group</th>
+                        <!-- <th>Age</th> -->
+                        <th>Blood Group ID</th>
                         <th>Unit</th>
                         <th>Disease</th>
-                        <th>Donated At</th>
+                        <th>Donation Center Id</th>
                         <th>Date</th>
                         <!-- <th>Status</th> -->
                     </tr>
                 </thead>
                 <tbody class="text-center">
-                    <tr *ngFor="let d of details">
-                        <td>{{d.id}}</td>
-                        <td>{{d.name}}</td>
-                        <td>{{d.age}}</td>
-                        <td>{{d.bloodGroup}}</td>
+                    <tr *ngFor="let d of BloodDonationHistory">
+                        <td>{{d.bloodDonationId}}</td>
+                        <td>{{d.donarName}}</td>
+                        <!-- <td>{{d.age}}</td> -->
+                        <td>{{d.bloodGroupId}}</td>
                         <td>{{d.unit}}</td>
                         <td>{{d.disease}}</td>
-                        <td>{{d.city}}</td>
-                        <td>{{d.date | date:'fullDate'}}</td>
+                        <td>{{d.donationCenter}}</td>
+                        <td>{{d.donationDate | date:'fullDate'}}</td>
                         <!-- <td>
                             <button class="btn btn-success">Approved</button>
                         </td>
