@@ -1,52 +1,78 @@
-
-
 <!-- Donor Registration -->
 <section id="donor-registration" class="section-padding">
-    <div class="container">
-     
-      <div class="row justify-content-center top-row">
-       
-        <div class="card w-50 donor-login p-0">
-          <div class="card-header bg-danger text-white text-center">
-              <h5>Donate Blood</h5>
-          </div>
-          <div class="card-body p-0 bg-light">
-        <form [formGroup]="DonatBloodForm" (ngSubmit)="submitted()">
-         
-          <div class="form-body">           
-            
-                  <label for="blood-group" class="form-label">Blood Group</label>
-                  <select name="bloodGroup" id="blood-group" class="text-secondary form-control" formControlName="bloodGroup">
-                    <option  class="form-control" value="Select Your Blood Group">Select From Drop Down List</option>
-                    <option  class="form-control" value="A+">A+</option>
-                    <option  class="form-control" value="B+">B+</option>
-                    <option  class="form-control" value="AB+">AB+</option>
-                    <option  class="form-control" value="A-">A-</option>
-                    <option  class="form-control" value="B-">B-</option>
-                    <option  class="form-control" value="AB-">AB-</option>
-                    <option  class="form-control" value="O+">O+</option>
-                    <option  class="form-control" value="O-">O-</option>                                
-                   </select>
-              
-                <label for="unit">Unit (in ml)</label>
-                <input type="number" name="unit" id="unit" class="form-control" formControlName="unit">
+  <div class="container">
+    <div class="row justify-content-center top-row">
+      <div class="card w-50 donor-login p-0">
+        <div class="card-header bg-danger text-white text-center">
+          <h5>Donate Blood</h5>
+        </div>
+        <div class="card-body p-0 bg-light">
+          <form [formGroup]="DonatBloodForm" (ngSubmit)="onSubmit()">
+            <div class="form-body">
+              <label for="blood-group" class="form-label">Blood Group</label>
+              <select
+                name="bloodGroup"
+                id="blood-group"
+                class="text-secondary form-control"
+                formControlName="bloodGroup"
+              >
+                <option class="form-control" value="Select Your Blood Group">
+                  Select From Drop Down List
+                </option>
+                <option class="form-control" *ngFor="let blood of BloodGroupsList" [value]="blood.bloodGroupID">{{blood.bloodGroupName}}</option>
                 
-                <label for="disease">Disease (if any)</label>
-                <input type="text" name="disease" id="disease" class="form-control" formControlName="disease">
+              </select>
 
-                <label class="form-label" for="city">Donated At (City)</label>
-                <select name="city" id="city" class="form-control text-secondary" formControlName="city">
-                  <option  class="form-control" value="Aurangabad">Aurangabad</option>
-                  <option  class="form-control" value="Pune">Pune</option>
-                  <option  class="form-control" value="Nagpure">Nagpure</option>
-                  <option  class="form-control" value="Mumbai">Mumbai</option>
-               </select>
-                <button type="submit" class="btn btn-danger my-4" style="float: right;">Donate</button>
-         </div>
-           
-        </form>
+              <label for="unit">Unit (in ml)</label>
+              <input
+                type="number"
+                name="unit"
+                id="unit"
+                class="form-control"
+                formControlName="unit"
+              />
+
+              <label for="disease">Disease (if any)</label>
+              <input
+                type="text"
+                name="disease"
+                id="disease"
+                class="form-control"
+                formControlName="disease"
+              />
+
+              <label class="form-label" for="DonationCenter">Blood Donation Center :</label>
+              <select
+                name="DonationCenter"
+                id="DonationCenter"
+                class="form-control text-secondary"
+                formControlName="DonationCenter"
+              >
+               <option class="form-control" *ngFor="let center of BloodDonationCentersList" [value]="center.bloodDonationCenterId">
+                  {{center.bloodDonationCenterName}}
+               </option>
+              </select>
+
+              <label for="DonationDate">Donate On : </label>
+              <input
+                type="date"
+                name="DonationDate"
+                id="DonationDate"
+                class="form-control"
+                formControlName="DonationDate"
+              />
+
+              <button
+                type="submit"
+                class="btn btn-danger my-4"
+                style="float: right"
+              >
+                Donate
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
-      </div>
-     </div>
     </div>
+  </div>
 </section>
