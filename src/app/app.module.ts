@@ -17,6 +17,7 @@ import { BBDService } from './Services/bbd.service';
 import { AccessServicesService } from './Services/access-services.service';
 import { FooterComponent } from './footer/footer.component';
 import { ForgotComponent } from './forgot/forgot.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 
 
@@ -27,6 +28,8 @@ const router:Routes=[
     {path:'need-blood-form',component:NeedBloodComponent},
     {path:'login',component:LoginComponent},
     {path:'forgot',component:ForgotComponent},
+    {path:'page-not-found',component:PagenotfoundComponent},
+    {path:'**',redirectTo:'page-not-found'}
       ]},
       {path:'donor',
       loadChildren:()=>import('./donor/donor.module')
@@ -47,7 +50,8 @@ const router:Routes=[
     IndexComponent,
  
     FooterComponent,
-    ForgotComponent
+    ForgotComponent,
+    PagenotfoundComponent
     ],
   imports: [
     BrowserModule,
