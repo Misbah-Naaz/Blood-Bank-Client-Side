@@ -1,0 +1,36 @@
+<section class="section-padding">
+    <div class="container">
+        <h5 class="text-center">Today's Donation</h5>
+            <table class="table table-striped table-responsive table-primary">
+                <thead class="text-center">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Blood Group</th>
+                        <th>Unit</th>
+                        <th>Disease</th>
+                        <th>Donation Center</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    <tr *ngFor="let d of todaysDonation">
+                        <td>{{d.bloodDonationId}}</td>
+                        <td>{{d.donarName}}</td>
+                        <td>{{d.bloodGroupName}}</td>
+                        <td>{{d.unit}}</td>
+                        <td>{{d.disease}}</td>
+                        <td>{{d.bloodDonationCenter}}</td>
+                        <td>{{d.donationDate | date:'fullDate'}}</td>
+                        <td>{{d.status}}</td>
+                        <td>
+                            <button class="btn btn-warning" *ngIf="d.status=='pending'" (click)="continueDonation(d.bloodDonationId)">Continue</button>
+                            <button class="btn btn-success" *ngIf="d.status!='pending'" (click)="viewDetail(d)">View</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </div>
+   </section>

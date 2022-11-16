@@ -8,6 +8,7 @@ import { DonorComponent } from './donor.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SidebarComponent } from './Components/sidebar/sidebar.component';
 import { AccessServicesService } from '../Services/access-services.service';
+import { TodaysDonationComponent } from './Components/todays-donation/todays-donation.component';
 
 const donorrouter:Routes=[
   {path:'donor',
@@ -18,7 +19,8 @@ const donorrouter:Routes=[
     {path:'donor-dashboard',component:DonorDashboardComponent},
     {path:'sidebar',component:SidebarComponent},
     {path:'blood-donation-form',component:BloodDonationFormComponent},
-    {path:'donation-history',component:DonationHistoryComponent}
+    {path:'donation-history',component:DonationHistoryComponent},
+    {path:'today-donation',component:TodaysDonationComponent}
   ]
   }
 ]
@@ -29,7 +31,8 @@ const donorrouter:Routes=[
     DonorDashboardComponent,
     BloodDonationFormComponent,
     DonationHistoryComponent,
-    SidebarComponent
+    SidebarComponent,
+    TodaysDonationComponent
   ],
   imports: [
     CommonModule,
