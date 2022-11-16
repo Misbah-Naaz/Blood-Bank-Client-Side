@@ -10,6 +10,7 @@ import { BloodStackComponent } from './components/blood-stock/blood-stack.compon
 import { ReactiveFormsModule } from '@angular/forms';
 import { DataTablesModule } from 'angular-datatables';
 import { AccessServicesService } from '../Services/access-services.service';
+import { BloodDonationsComponent } from './components/blood-donations/blood-donations.component';
 
 const adminrouter:Routes=[
   {path:'admin',component:AdminComponent,canActivate:[AccessServicesService],children:[
@@ -29,7 +30,8 @@ const adminrouter:Routes=[
     PatientDetailsComponent,
     AdminComponent,
     SidebarComponent,
-    BloodStackComponent
+    BloodStackComponent,
+    BloodDonationsComponent
   ],
   imports: [
     CommonModule,

@@ -7,12 +7,12 @@
                         <th>ID</th>
                         <th>Name</th>
                         <!-- <th>Age</th> -->
-                        <th>Blood Group ID</th>
+                        <th>Blood Group</th>
                         <th>Unit</th>
                         <th>Disease</th>
-                        <th>Donation Center Id</th>
+                        <th>Donation Center</th>
                         <th>Date</th>
-                        <!-- <th>Status</th> -->
+                        <th>Status</th>
                     </tr>
                 </thead>
                 <tbody class="text-center">
@@ -20,11 +20,12 @@
                         <td>{{d.bloodDonationId}}</td>
                         <td>{{d.donarName}}</td>
                         <!-- <td>{{d.age}}</td> -->
-                        <td>{{d.bloodGroupId}}</td>
+                        <td>{{d.bloodGroupName}}</td>
                         <td>{{d.unit}}</td>
                         <td>{{d.disease}}</td>
-                        <td>{{d.donationCenter}}</td>
+                        <td>{{d.bloodDonationCenter}}</td>
                         <td>{{d.donationDate | date:'fullDate'}}</td>
+                        <td>{{d.status}}</td>
                         <!-- <td>
                             <button class="btn btn-success">Approved</button>
                         </td>

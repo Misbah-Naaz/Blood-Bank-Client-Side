@@ -27,6 +27,7 @@ export class DonationHistoryComponent implements OnInit {
   getBloodDonationByDonarId(){
     this.BBDService.getBloodDonationsByDonarId(this.token,1).subscribe((data:any)=>{
       this.BloodDonationHistory = data;
+      console.log(data);
     })
   }
 

@@ -1,5 +1,5 @@
 export class BloodGroups{
-    bloodGroupID: number = 0;
+    bloodGroupId: number = 0;
     bloodGroupName: string = '';
     bloodGroupDescription: string = '';
     compatibleWith: string = '';

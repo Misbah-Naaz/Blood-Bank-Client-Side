@@ -85,12 +85,14 @@ export class BloodDonationFormComponent implements OnInit {
     return (this.bloodDonationReq = {
       bloodDonationId: 0,
       donarId: 1,
-      bloodGroupId: this.DonatBloodForm.get('bloodGroup')?.value,
+      bloodGroupId: +this.DonatBloodForm.get('bloodGroup')?.value,
+      bloodGroupName : '',
       donarName:  'Donar 1',
       disease:  this.DonatBloodForm.get('disease')?.value,
       unit: this.DonatBloodForm.get('unit')?.value,
       status: "pending",
-      donationCenter: this.DonatBloodForm.get('DonationCenter')?.value,
+      bloodDonationCenterId: +this.DonatBloodForm.get('DonationCenter')?.value,
+      bloodDonationCenter : '',
       donationDate: this.DonatBloodForm.get('DonationDate')?.value,
     })
   }
