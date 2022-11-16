@@ -38,7 +38,7 @@ todaysDonation:BloodDonations[]=[];
   {
     console.log(data)
   }
-  continueDonation(DonationId:any)
+  continueDonation(donation:BloodDonations)
   {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
@@ -59,7 +59,7 @@ todaysDonation:BloodDonations[]=[];
     }).then((result) => {
       if (result.isConfirmed) {
        
-        this.bbd.completeDonation(this.token,DonationId).subscribe((data:any)=>
+        this.bbd.completeDonation(this.token,donation,donation.bloodDonationId).subscribe((data:any)=>
         {
           console.log(data);
           swalWithBootstrapButtons.fire(

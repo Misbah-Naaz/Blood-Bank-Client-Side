@@ -100,11 +100,12 @@ export class BBDService {
     return this.http.get(this.baseurl + `api/BloodDonations/getDonaationByDonarId/${donarId}`, header)
    
   }
-  completeDonation(token:any,donationId:any)
+
+  completeDonation(token:any,donation : BloodDonations ,donationId:any)
   {
     var header = {
       headers : new HttpHeaders().set('Authorization', `Bearer ${token}`)
     }
-    return this.http.put(this.baseurl + `api/BloodDonations/complete/${donationId}`,header)
+    return this.http.put(this.baseurl + `api/BloodDonations/complete/${donationId}`,donation,header)
   }
 }
