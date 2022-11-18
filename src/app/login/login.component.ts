@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { find } from 'rxjs';
+import { DonorDetail } from 'src/Models/DonorDetail';
 import { LoginRequest } from 'src/Models/LoginRequest';
 import { User } from 'src/Models/User';
 import { UserCredential } from 'src/Models/UserCredential';
@@ -59,6 +60,9 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('UserName',data.userName);
           localStorage.setItem('UserRole',data.userRole);
           localStorage.setItem('Token',data.token);
+          localStorage.setItem('UserId',data.userId);
+
+          
           
           if(data.userRole=="Admin")
           {
@@ -74,6 +78,12 @@ export class LoginComponent implements OnInit {
           else{
             if(data.userRole=='Donor')
             {
+              console.log(data.token);
+              this.newlogin.getDonarByUserId(data.token,data.userId).subscribe((data:any)=>{
+                console.log(data);
+                localStorage.setItem("DonarId",data.donorId);
+                localStorage.setItem("DonarName",data.donarName);                
+              })
               this.route.navigate(['donor'])
                  Swal.fire(
         {

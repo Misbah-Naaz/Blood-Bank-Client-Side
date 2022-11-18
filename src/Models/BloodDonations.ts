@@ -8,6 +8,6 @@ export class BloodDonations{
     unit:number = 0;
     status: string= '';
     bloodDonationCenterId:number = 0;
-    bloodDonationCenter:string = '';
+    bloodDonationCenterName:string = '';
     donationDate:number = 0;
   }

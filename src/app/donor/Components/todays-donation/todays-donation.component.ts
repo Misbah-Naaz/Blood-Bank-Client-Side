@@ -11,11 +11,14 @@ import Swal from 'sweetalert2';
 })
 export class TodaysDonationComponent implements OnInit {
 token:any;
-Donorid:number=1;
+Donorid!:string;
+DonarName!:string;
 todaysDate:Date=new Date()
 todaysDonation:BloodDonations[]=[];
   constructor(private bbd:BBDService) { }
   ngOnInit(): void {
+    this.Donorid= localStorage.getItem('DonarId')!;
+    this.DonarName=localStorage.getItem('DonarName')!;
     this.token=localStorage.getItem('Token');
     this.getTodaysDonation();
   }
@@ -80,5 +83,4 @@ todaysDonation:BloodDonations[]=[];
       }
     })
   }
-  
 }

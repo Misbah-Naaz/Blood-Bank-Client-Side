@@ -22,15 +22,71 @@
                         <td>{{d.bloodGroupName}}</td>
                         <td>{{d.unit}}</td>
                         <td>{{d.disease}}</td>
-                        <td>{{d.bloodDonationCenter}}</td>
+                        <td>{{d.bloodDonationCenterName}}</td>
                         <td>{{d.donationDate | date:'fullDate'}}</td>
                         <td>{{d.status}}</td>
                         <td>
                             <button class="btn btn-warning" *ngIf="d.status=='pending'" (click)="continueDonation(d)">Continue</button>
-                            <button class="btn btn-success" *ngIf="d.status!='pending'" (click)="viewDetail(d)">View</button>
+                            <button class="btn btn-success" *ngIf="d.status!='pending'" (click)="viewDetail(d)"  data-bs-toggle="modal" data-bs-target="#ViewDetailModal">View Details</button>
                         </td>
                     </tr>
                 </tbody>
             </table>
     </div>
    </section>
+   <!-- View Detail Model -->
+  <div class="modal fade" id="ViewDetailModal" tabindex="-1" aria-labelledby="ViewDetailModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Details</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" *ngFor="let d of todaysDonation">
+           <div class="row">
+            <div class="col-4">
+                <label for="name">Name:</label>
+            </div>
+            <div class="col-8">
+                <label>{{d.donarName}}</label>
+            </div>
+           </div>
+           <div class="row">
+            <div class="col-4">
+                <label for="bloodGroup">Blood Group:</label>
+            </div>
+            <div class="col-8">
+                <label>{{d.bloodGroupName}}</label>
+            </div>
+           </div>
+           <div class="row">
+            <div class="col-4">
+                <label for="unit">Unit of blood:</label>
+            </div>
+            <div class="col-8">
+                <label>{{d.unit}}</label>
+            </div>
+           </div>
+           <div class="row">
+            <div class="col-4">
+                <label for="donateAt">Donate At:</label>
+            </div>
+            <div class="col-8">
+               <label>{{d.bloodDonationCenterName}}</label>
+            </div>
+           </div>
+           <div class="row">
+            <div class="col-4">
+                <label for="donatedOn">Donate On:</label>
+            </div>
+            <div class="col-8">
+               <label>{{d.donationDate | date}}</label>
+            </div>
+           </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>

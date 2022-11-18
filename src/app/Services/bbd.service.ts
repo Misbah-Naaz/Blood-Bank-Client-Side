@@ -7,6 +7,7 @@ import { RecoverPasswordQuestions } from 'src/Models/RecoverPasswordQuestion';
 import { Observable } from 'rxjs';
 import { BloodDonationCenter } from 'src/Models/BloodDonationCenter';
 import { BloodDonations } from 'src/Models/BloodDonations';
+import { RegisterUser } from 'src/Models/RegisterUser';
 @Injectable({
   providedIn: 'root'
 })
@@ -27,12 +28,12 @@ export class BBDService {
     }
     return this.http.get(this.baseurl+"api/Donar/get",header)
   }
-  postRegisterUser(userData :User,token:any)
+  postRegisterUser(userData :RegisterUser,token:any)
   {
      var header={
     headers:new HttpHeaders().set(`Authorization`,`Bearer ${token}`)
   }
-    return this.http.post(this.baseurl+"api/User/add", userData,header)
+    return this.http.post(this.baseurl+"api/User/RegisterUser", userData,header)
   }
   getLoginUser()
   {
@@ -107,5 +108,21 @@ export class BBDService {
       headers : new HttpHeaders().set('Authorization', `Bearer ${token}`)
     }
     return this.http.put(this.baseurl + `api/BloodDonations/complete/${donationId}`,donation,header)
+  }
+
+  getDonarByUserId(token :any, userId:any){
+    var header = {
+      headers : new HttpHeaders().set('Authorization', `Bearer ${token}`)
+    }
+    return this.http.get(this.baseurl + `api/Donar/getDonorByUserId/${userId}`,header)
+
+  }
+
+  getPatientByUserId(token :any, userId:any){
+    var header = {
+      headers : new HttpHeaders().set('Authorization', `Bearer ${token}`)
+    }
+    return this.http.get(this.baseurl + `api/Patient/getPatientByUserId/${userId}`,header)
+
   }
 }

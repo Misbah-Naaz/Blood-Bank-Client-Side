@@ -8,6 +8,8 @@ import Swal from 'sweetalert2';
 import { BBDService } from '../Services/bbd.service';
 import * as alert from 'alertifyjs'
 import { RecoverPasswordQuestions } from 'src/Models/RecoverPasswordQuestion';
+import { RegisterUser } from 'src/Models/RegisterUser';
+import { AlertifyJSService } from '../Services/alertify-js.service';
 @Component({
   selector: 'app-donor-registration',
   templateUrl: './donor-registration.component.html',
@@ -23,15 +25,15 @@ export class DonorRegistrationComponent implements OnInit {
     pno:new FormControl('',Validators.required),
     password:new FormControl('',[Validators.required,Validators.minLength(6)]),
     cpassword : new FormControl(''),
-    UserRole:new FormControl(''),
-    recoverPasswordQuestion : new FormControl(''),
-    recoverPasswordAnswer : new FormControl('')
+    UserRole:new FormControl('',[Validators.required]),
+    // recoverPasswordQuestion : new FormControl(''),
+    // recoverPasswordAnswer : new FormControl('')
   })
   // userlist:User[] = [];
 token:any;
   user : User = new User();
   userRoles:UserRole[]=[];
-  regRequest :  User = new User();
+  regRequest :  RegisterUser = new RegisterUser();
 
   questionText : string = '';
 
@@ -72,18 +74,18 @@ token:any;
     return this.registrationForm.get('UserRole') as FormControl;
   }
 
-  get recoverPasswordQuestion()
-  {
-    return this.registrationForm.get('recoverPasswordQuestion') as FormControl;
-  }
+  // get recoverPasswordQuestion()
+  // {
+  //   return this.registrationForm.get('recoverPasswordQuestion') as FormControl;
+  // }
 
-  get recoverPasswordAnswer()
-  {
-    return this.registrationForm.get('recoverPasswordAnswer') as FormControl;
-  }
+  // get recoverPasswordAnswer()
+  // {
+  //   return this.registrationForm.get('recoverPasswordAnswer') as FormControl;
+  // }
 
 
-  constructor(private router : Router,private newUser:BBDService) { }
+  constructor(private router : Router,private newUser:BBDService,private alertify:AlertifyJSService) { }
 
   ngOnInit(): void {
     this.token=localStorage.getItem('Token');
@@ -96,17 +98,12 @@ token:any;
   // this.Fname = localStorage.getItem('name');
 }
   registerSuccessful(){
-
     console.log(this.requestData());
-
    if(this.registrationForm.valid)
 {
-    console.log(this.registrationForm.value)
-    // this.user.email = this.Email.value;
-    // this.user.password = this.Password.value;
-    // this.user.userRole = 'user';
+    // console.log(this.registrationForm.value)
     if(this.Password.value==this.ConfirmPassword.value)
-   {
+   {    
     this.newUser.postRegisterUser(this.requestData(),this.token).subscribe((data:any)=>{
       console.log(data)
       Swal.fire({
@@ -114,40 +111,40 @@ token:any;
         title: 'Successful',
         text: 'Thank You For Registration!',
       })
-      //this.alert.success("Thank You For Registration!")
+      // this.alertify.success("Thank You For Registration!")
       this.router.navigate(['/login']);
     })  
     }
     else{
       console.log("Password Mismatch")
-      alert.error("Password Mismatch")
-      // Swal.fire({
-      //   icon: 'error',
-      //   text:'Password Mismatch'
-      // })
+      Swal.fire({
+        icon:'error',
+        text:'Password Mismatched'})
      }
   } 
-  //  else{
-  //   Swal.fire({
-  //     icon: 'error',
-  //     title: 'Please Fill all the details',
-  //     text: 'Fill Again!',
-  //   })
-  //   // this.registrationForm.reset();
-  //  }
+   else{
+    // Swal.fire({
+    //   icon: 'error',
+    //   title: 'Please Fill all the details',
+    //   text: 'Fill Again!',
+    // })
+    this.alertify.error('Kindly Provide Required Feilds')
+     this.registrationForm.reset();
+   }
   } 
-  
   requestData(){
+    let currentYear=new Date().getFullYear() 
+    let birthYear=new Date(this.DOB.value).getFullYear()
     return (this.regRequest={
-      userID: 0,
-      firstName: this.FName.value,
-      lastName:this.LName.value ,
-      dateOfBirth: this.DOB.value,
-      mobileNumber: this.MobileNumber.value,
-      gender:this.Gender.value ,
+      firstName:this.FName.value,//call get function and assign value to object key
+      lastName:this.registrationForm.get('lname')?.value,//taking values directly from form group
+      phoneNumber:this.MobileNumber.value,
       email:this.Email.value,
-      password: this.Password.value,
-      userRole: this.UserRole.value,   
+      gender:this.Gender.value,
+      dob: this.DOB.value,
+      age: currentYear-birthYear,
+      password:this.Password.value,
+      registerAs:this.UserRole.value
     })
   }
   getUserRole()
