@@ -9,6 +9,7 @@ import { DonorHistory } from 'src/Models/DonorHistory';
 })
 export class DonationHistoryComponent implements OnInit {
   token: any;
+  DonarId : any;
   BloodDonationHistory : BloodDonations[] = [];
   // details:DonorDetail[]=[];
   // constructor(private DonorService:BBDService) { }
@@ -19,13 +20,14 @@ export class DonationHistoryComponent implements OnInit {
 
   ngOnInit(): void {
   this.token = localStorage.getItem('Token');
+  this.DonarId = localStorage.getItem('DonarId');
 
   this.getBloodDonationByDonarId();
 }
 
 
   getBloodDonationByDonarId(){
-    this.BBDService.getBloodDonationsByDonarId(this.token,7).subscribe((data:any)=>{
+    this.BBDService.getBloodDonationsByDonarId(this.token,this.DonarId).subscribe((data:any)=>{
       this.BloodDonationHistory = data;
       console.log(data);
     })

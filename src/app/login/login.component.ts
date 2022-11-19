@@ -78,7 +78,6 @@ export class LoginComponent implements OnInit {
           else{
             if(data.userRole=='Donor')
             {
-              console.log(data.token);
               this.newlogin.getDonarByUserId(data.token,data.userId).subscribe((data:any)=>{
                 console.log(data);
                 localStorage.setItem("DonarId",data.donorId);
@@ -92,6 +91,20 @@ export class LoginComponent implements OnInit {
           text: 'Login Successfully!',
       })
               
+            }
+            else if(data.userRole == "Patient"){
+              this.newlogin.getPatientByUserId(data.token, data.userId).subscribe((data:any)=>{
+                console.log(data);
+                // localStorage.setItem("PatientId",data.pat)
+              })
+              this.route.navigate(['patient'])
+              Swal.fire(
+                {
+                  icon: 'success',
+                  title: 'Successful',
+                  text: 'Login Successfully!',
+              })
+                 
             }
           }
         }
