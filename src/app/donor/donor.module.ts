@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SidebarComponent } from './Components/sidebar/sidebar.component';
 import { AccessServicesService } from '../Services/access-services.service';
 import { TodaysDonationComponent } from './Components/todays-donation/todays-donation.component';
+import { DonorProfileComponent } from './Components/donor-profile/donor-profile.component';
 
 const donorrouter:Routes=[
   {path:'donor',
@@ -32,7 +33,8 @@ const donorrouter:Routes=[
     BloodDonationFormComponent,
     DonationHistoryComponent,
     SidebarComponent,
-    TodaysDonationComponent
+    TodaysDonationComponent,
+    DonorProfileComponent
   ],
   imports: [
     CommonModule,

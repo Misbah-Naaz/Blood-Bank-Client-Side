@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DataTablesModule } from 'angular-datatables';
 import { AccessServicesService } from '../Services/access-services.service';
 import { BloodDonationsComponent } from './components/blood-donations/blood-donations.component';
+import { AdminProfileComponent } from './components/admin-profile/admin-profile.component';
 
 const adminrouter:Routes=[
   {path:'admin',component:AdminComponent,canActivate:[AccessServicesService],children:[
@@ -19,7 +20,8 @@ const adminrouter:Routes=[
     {path:'dashboard',component:AdminDashboardComponent},
     {path:'donor-details',component:DonorDetailsComponent},
     {path:'patient-details',component:PatientDetailsComponent},
-    {path:'blood-stack',component:BloodStackComponent}
+    {path:'blood-stack',component:BloodStackComponent},
+    {path:'admin-profile',component:AdminProfileComponent}
   ]}
 ]
 
@@ -31,7 +33,8 @@ const adminrouter:Routes=[
     AdminComponent,
     SidebarComponent,
     BloodStackComponent,
-    BloodDonationsComponent
+    BloodDonationsComponent,
+    AdminProfileComponent
   ],
   imports: [
     CommonModule,
